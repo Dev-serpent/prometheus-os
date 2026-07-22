@@ -1,0 +1,31 @@
+post_install() {
+    echo ":: Prometheus GNOME Integration installed."
+    echo ""
+    echo "   Available sessions at login:"
+    echo "     - Prometheus (GNOME) - Full GNOME with AI integration"
+    echo "     - Prometheus (Native) - Custom Prometheus compositor"
+    echo ""
+    echo "   Features:"
+    echo "     - Custom dark glassmorphism theme"
+    echo "     - Mutter compositor optimized for 240 FPS"
+    echo "     - Real-time AI panel indicator"
+    echo "     - Dynamic window tiling (Master-Stack, Grid, etc.)"
+    echo "     - Live system monitoring dashboard"
+    echo "     - AI-powered search and automation"
+    echo ""
+    echo "   To set Prometheus as default:"
+    echo "     systemctl enable gdm"
+    echo "     Select 'Prometheus (GNOME)' at login"
+    echo ""
+    
+    # Recompile schemas
+    glib-compile-schemas /usr/share/glib-2.0/schemas 2>/dev/null || true
+    
+    # Update dconf
+    dconf update /etc/dconf 2>/dev/null || true
+}
+
+post_upgrade() {
+    glib-compile-schemas /usr/share/glib-2.0/schemas 2>/dev/null || true
+    dconf update /etc/dconf 2>/dev/null || true
+}

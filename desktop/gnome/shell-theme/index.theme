@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Prometheus-Dark
+Comment=Prometheus OS Dark Glassmorphism Theme
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=Prometheus-Dark
+MetacityTheme=Prometheus-Dark
+IconTheme=Prometheus-Icons
+CursorTheme=prometheus-cursor
+ButtonLayout=close:

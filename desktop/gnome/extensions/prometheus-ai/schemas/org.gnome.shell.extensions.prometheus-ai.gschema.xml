@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.gnome.shell.extensions.prometheus-ai"
+          path="/org/gnome/shell/extensions/prometheus-ai/">
+    <key name="ai-enabled" type="b">
+      <default>true</default>
+      <summary>Enable Prometheus AI</summary>
+      <description>Whether Prometheus AI is enabled</description>
+    </key>
+    <key name="wake-word" type="s">
+      <default>'prometheus'</default>
+      <summary>Wake word</summary>
+      <description>The wake word for voice activation</description>
+    </key>
+    <key name="screen-analysis-enabled" type="b">
+      <default>true</default>
+      <summary>Screen analysis</summary>
+      <description>Enable automatic screen analysis for context awareness</description>
+    </key>
+    <key name="automation-learning" type="b">
+      <default>true</default>
+      <summary>Workflow learning</summary>
+      <description>Enable automatic workflow pattern detection</description>
+    </key>
+    <key name="show-indicator" type="b">
+      <default>true</default>
+      <summary>Show indicator</summary>
+      <description>Show the Prometheus AI indicator in the panel</description>
+    </key>
+  </schema>
+</schemalist>

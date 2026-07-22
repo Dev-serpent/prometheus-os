@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3840 2160">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" style="stop-color:#0D1117"/>
+      <stop offset="100%" style="stop-color:#0A0A0A"/>
+    </radialGradient>
+    <radialGradient id="glow1" cx="20%" cy="30%" r="40%">
+      <stop offset="0%" style="stop-color:rgba(0,120,255,0.08)"/>
+      <stop offset="100%" style="stop-color:transparent"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="80%" cy="70%" r="35%">
+      <stop offset="0%" style="stop-color:rgba(0,188,212,0.06)"/>
+      <stop offset="100%" style="stop-color:transparent"/>
+    </radialGradient>
+    <linearGradient id="accent-line" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:transparent"/>
+      <stop offset="50%" style="stop-color:rgba(0,120,255,0.15)"/>
+      <stop offset="100%" style="stop-color:transparent"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="3840" height="2160" fill="url(#bg)"/>
+  <rect width="3840" height="2160" fill="url(#glow1)"/>
+  <rect width="3840" height="2160" fill="url(#glow2)"/>
+  
+  <!-- Grid lines -->
+  <g stroke="rgba(255,255,255,0.02)" stroke-width="0.5">
+    <line x1="0" y1="360" x2="3840" y2="360"/>
+    <line x1="0" y1="720" x2="3840" y2="720"/>
+    <line x1="0" y1="1080" x2="3840" y2="1080"/>
+    <line x1="0" y1="1440" x2="3840" y2="1440"/>
+    <line x1="0" y1="1800" x2="3840" y2="1800"/>
+    <line x1="640" y1="0" x2="640" y2="2160"/>
+    <line x1="1280" y1="0" x2="1280" y2="2160"/>
+    <line x1="1920" y1="0" x2="1920" y2="2160"/>
+    <line x1="2560" y1="0" x2="2560" y2="2160"/>
+    <line x1="3200" y1="0" x2="3200" y2="2160"/>
+  </g>
+  
+  <!-- Accent line -->
+  <rect x="640" y="1070" width="2560" height="2" fill="url(#accent-line)"/>
+  <rect x="960" y="1070" width="2" height="20" fill="rgba(0,120,255,0.3)" filter="url(#glow)"/>
+  <rect x="1920" y="1070" width="2" height="20" fill="rgba(0,120,255,0.4)" filter="url(#glow)"/>
+  <rect x="2880" y="1070" width="2" height="20" fill="rgba(0,120,255,0.3)" filter="url(#glow)"/>
+  
+  <!-- Prometheus text -->
+  <text x="1920" y="1040" font-family="Inter, sans-serif" font-size="48" font-weight="300"
+        fill="rgba(255,255,255,0.04)" text-anchor="middle" letter-spacing="24">
+    PROMETHEUS
+  </text>
+  
+  <!-- Subtle accent dots -->
+  <circle cx="1920" cy="1080" r="2" fill="rgba(0,120,255,0.4)" filter="url(#glow)">
+    <animate attributeName="opacity" values="0.2;0.6;0.2" dur="4s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="960" cy="540" r="1" fill="rgba(0,188,212,0.3)" filter="url(#glow)">
+    <animate attributeName="opacity" values="0.3;0.7;0.3" dur="5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="2880" cy="720" r="1.5" fill="rgba(0,120,255,0.25)" filter="url(#glow)">
+    <animate attributeName="opacity" values="0.2;0.5;0.2" dur="6s" repeatCount="indefinite"/>
+  </circle>
+</svg>

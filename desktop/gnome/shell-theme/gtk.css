@@ -1,0 +1,350 @@
+/* Prometheus OS GTK Theme - Dark Glassmorphism */
+@define-color prometheus_bg #0A0A0A;
+@define-color prometheus_surface #1A1A1A;
+@define-color prometheus_surface2 #242424;
+@define-color prometheus_border #2A2A2A;
+@define-color prometheus_text #FFFFFF;
+@define-color prometheus_text_secondary #A0A0A0;
+@define-color prometheus_accent #0078FF;
+@define-color prometheus_accent_hover #1A8AFF;
+@define-color prometheus_danger #FF1744;
+@define-color prometheus_success #00C853;
+@define-color prometheus_warning #FFD600;
+
+* {
+    font-family: "Inter", sans-serif;
+}
+
+window, .window {
+    background: @prometheus_bg;
+    color: @prometheus_text;
+    border-radius: 12px;
+}
+
+.background {
+    background-color: @prometheus_bg;
+}
+
+decoration {
+    border: 1px solid alpha(@prometheus_border, 0.5);
+    background: @prometheus_surface;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.titlebar {
+    background: @prometheus_surface;
+    color: @prometheus_text;
+    border: none;
+    border-bottom: 1px solid alpha(@prometheus_border, 0.3);
+    padding: 4px 8px;
+}
+
+button {
+    background: @prometheus_surface2;
+    color: @prometheus_text;
+    border: 1px solid alpha(@prometheus_border, 0.5);
+    border-radius: 8px;
+    padding: 6px 16px;
+    transition: all 150ms ease;
+    min-height: 32px;
+}
+
+button:hover {
+    background: mix(@prometheus_surface2, @prometheus_accent, 10%);
+    border-color: alpha(@prometheus_accent, 0.3);
+}
+
+button:active {
+    background: mix(@prometheus_surface2, @prometheus_accent, 20%);
+}
+
+button:checked {
+    background: @prometheus_accent;
+    color: white;
+    border-color: @prometheus_accent;
+}
+
+entry {
+    background: @prometheus_surface2;
+    color: @prometheus_text;
+    border: 1px solid alpha(@prometheus_border, 0.5);
+    border-radius: 8px;
+    padding: 6px 12px;
+    min-height: 32px;
+    caret-color: @prometheus_accent;
+}
+
+entry:focus {
+    border-color: @prometheus_accent;
+    box-shadow: 0 0 12px alpha(@prometheus_accent, 0.2);
+}
+
+entry:disabled {
+    opacity: 0.5;
+}
+
+label {
+    color: @prometheus_text;
+}
+
+label.separator {
+    color: @prometheus_text_secondary;
+}
+
+scrollbar {
+    background: transparent;
+    border: none;
+}
+
+scrollbar trough {
+    background: alpha(@prometheus_text, 0.05);
+    border-radius: 4px;
+}
+
+scrollbar slider {
+    background: alpha(@prometheus_text, 0.2);
+    border-radius: 4px;
+    min-width: 4px;
+}
+
+scrollbar slider:hover {
+    background: alpha(@prometheus_text, 0.4);
+}
+
+scrollbar slider:active {
+    background: @prometheus_accent;
+}
+
+treeview {
+    background: @prometheus_surface;
+    color: @prometheus_text;
+}
+
+treeview:selected {
+    background: alpha(@prometheus_accent, 0.2);
+}
+
+treeview.view {
+    border-color: @prometheus_border;
+}
+
+menubar {
+    background: @prometheus_surface;
+    color: @prometheus_text;
+    border: none;
+}
+
+menu {
+    background: @prometheus_surface;
+    border: 1px solid alpha(@prometheus_border, 0.5);
+    border-radius: 8px;
+    padding: 4px;
+}
+
+menuitem {
+    border-radius: 6px;
+    padding: 6px 12px;
+    transition: all 100ms;
+}
+
+menuitem:hover {
+    background: alpha(@prometheus_accent, 0.1);
+}
+
+notebook {
+    background: transparent;
+    border: none;
+}
+
+notebook tab {
+    background: @prometheus_surface2;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    padding: 6px 16px;
+    color: @prometheus_text_secondary;
+}
+
+notebook tab:selected {
+    background: @prometheus_surface;
+    border-color: @prometheus_accent;
+    color: @prometheus_accent;
+}
+
+paned {
+    background: @prometheus_bg;
+}
+
+paned separator {
+    background: @prometheus_border;
+    min-width: 1px;
+}
+
+toolbar {
+    background: @prometheus_surface;
+    border: none;
+    border-bottom: 1px solid alpha(@prometheus_border, 0.3);
+}
+
+progressbar {
+    background: alpha(@prometheus_text, 0.1);
+    border-radius: 4px;
+    min-height: 4px;
+}
+
+progressbar trough {
+    background: alpha(@prometheus_text, 0.1);
+    border-radius: 4px;
+    min-height: 4px;
+}
+
+progressbar progress {
+    background: @prometheus_accent;
+    border-radius: 4px;
+    box-shadow: 0 0 8px alpha(@prometheus_accent, 0.4);
+}
+
+scale {
+    min-height: 4px;
+}
+
+scale trough {
+    background: alpha(@prometheus_text, 0.1);
+    border-radius: 4px;
+    min-height: 4px;
+}
+
+scale highlight {
+    background: @prometheus_accent;
+    border-radius: 4px;
+}
+
+scale slider {
+    background: @prometheus_accent;
+    border: 2px solid white;
+    border-radius: 50%;
+    min-width: 16px;
+    min-height: 16px;
+    box-shadow: 0 0 12px alpha(@prometheus_accent, 0.3);
+}
+
+switch {
+    background: alpha(@prometheus_text, 0.15);
+    border-radius: 12px;
+    min-width: 44px;
+    min-height: 22px;
+}
+
+switch:checked {
+    background: @prometheus_accent;
+}
+
+switch slider {
+    background: white;
+    border-radius: 50%;
+    min-width: 18px;
+    min-height: 18px;
+    margin: 2px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+
+tooltip {
+    background: @prometheus_surface;
+    color: @prometheus_text;
+    border: 1px solid alpha(@prometheus_border, 0.5);
+    border-radius: 8px;
+    padding: 6px 10px;
+}
+
+dialog {
+    background: @prometheus_surface;
+    border-radius: 12px;
+}
+
+headerbar {
+    background: @prometheus_surface;
+    color: @prometheus_text;
+    border: none;
+    border-bottom: 1px solid alpha(@prometheus_border, 0.3);
+    padding: 4px 8px;
+    min-height: 40px;
+}
+
+statusbar {
+    background: @prometheus_surface;
+    color: @prometheus_text_secondary;
+    border-top: 1px solid alpha(@prometheus_border, 0.3);
+}
+
+infobar {
+    background: alpha(@prometheus_accent, 0.1);
+    border: 1px solid alpha(@prometheus_accent, 0.3);
+    border-radius: 8px;
+    margin: 4px;
+}
+
+spinbutton {
+    background: @prometheus_surface2;
+    border: 1px solid alpha(@prometheus_border, 0.5);
+    border-radius: 8px;
+}
+
+combo {
+    background: @prometheus_surface2;
+    border: 1px solid alpha(@prometheus_border, 0.5);
+    border-radius: 8px;
+}
+
+checkbutton {
+    -gtk-icon-source: none;
+}
+
+check {
+    border: 2px solid alpha(@prometheus_text, 0.3);
+    border-radius: 4px;
+    min-width: 16px;
+    min-height: 16px;
+}
+
+check:checked {
+    background: @prometheus_accent;
+    border-color: @prometheus_accent;
+}
+
+radio {
+    border: 2px solid alpha(@prometheus_text, 0.3);
+    border-radius: 50%;
+    min-width: 16px;
+    min-height: 16px;
+}
+
+radio:checked {
+    background: @prometheus_accent;
+    border-color: @prometheus_accent;
+}
+
+/* File chooser */
+filechooser {
+    background: @prometheus_bg;
+}
+
+/* Popover */
+popover {
+    background: @prometheus_surface;
+    border: 1px solid alpha(@prometheus_border, 0.5);
+    border-radius: 12px;
+    padding: 4px;
+}
+
+/* Assistant */
+assistant {
+    background: @prometheus_bg;
+}
+
+/* App notification */
+.app-notification {
+    background: @prometheus_surface;
+    border: 1px solid alpha(@prometheus_border, 0.5);
+    border-radius: 12px;
+    padding: 12px 16px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+}

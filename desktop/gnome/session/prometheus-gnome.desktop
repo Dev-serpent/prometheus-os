@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Prometheus (GNOME)
+Comment=Prometheus OS - GNOME Desktop Environment with AI Integration
+Exec=/usr/lib/prometheus/prometheus-gnome-session
+Type=Application
+DesktopNames=GNOME;Prometheus;
+TryExec=gnome-session
+X-GNOME-SessionName=prometheus-gnome
+X-GNOME-Provides=windowmanager;panel;filemanager;

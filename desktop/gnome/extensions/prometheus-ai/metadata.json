@@ -1,0 +1,10 @@
+{
+  "name": "Prometheus AI",
+  "description": "Deep AI integration for GNOME Shell. Provides AI-powered search, screen analysis, workflow automation, and intelligent assistance throughout the desktop.",
+  "uuid": "prometheus-ai@prometheus-os.dev",
+  "shell-version": ["45", "46", "47"],
+  "version": 1,
+  "url": "https://prometheus-os.dev",
+  "gettext-domain": "prometheus-ai",
+  "settings-schema": "org.gnome.shell.extensions.prometheus-ai"
+}

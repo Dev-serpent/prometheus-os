@@ -1,0 +1,202 @@
+/* Prometheus OS GDM Login Theme */
+@define-color prometheus_bg #0A0A0A;
+@define-color prometheus_surface #1A1A1A;
+@define-color prometheus_surface2 #242424;
+@define-color prometheus_border #2A2A2A;
+@define-color prometheus_text #FFFFFF;
+@define-color prometheus_text_secondary #A0A0A0;
+@define-color prometheus_accent #0078FF;
+
+#lockDialogGroup {
+    background: #0A0A0A;
+    background-image: radial-gradient(ellipse at 50% 50%, rgba(0, 120, 255, 0.05) 0%, transparent 70%);
+}
+
+.login-dialog {
+    background: rgba(26, 26, 26, 0.85);
+    border: 1px solid rgba(42, 42, 42, 0.5);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(24px);
+    padding: 32px;
+    min-width: 400px;
+}
+
+.login-dialog-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #0078FF;
+    text-shadow: 0 0 20px rgba(0, 120, 255, 0.3);
+}
+
+.login-dialog-subtitle {
+    font-size: 14px;
+    color: #A0A0A0;
+    margin-bottom: 24px;
+}
+
+.login-dialog-user-list {
+    spacing: 8px;
+}
+
+.login-dialog-user-list-item {
+    border-radius: 12px;
+    padding: 12px;
+    background: rgba(36, 36, 36, 0.8);
+    border: 1px solid transparent;
+    transition: all 200ms ease;
+}
+
+.login-dialog-user-list-item:hover {
+    background: rgba(0, 120, 255, 0.1);
+    border-color: rgba(0, 120, 255, 0.3);
+}
+
+.login-dialog-user-list-item:selected {
+    background: rgba(0, 120, 255, 0.15);
+    border-color: #0078FF;
+    box-shadow: 0 0 20px rgba(0, 120, 255, 0.2);
+}
+
+.login-dialog-prompt-label {
+    font-size: 12px;
+    color: #A0A0A0;
+    margin-bottom: 4px;
+}
+
+.login-dialog-prompt-entry {
+    background: rgba(36, 36, 36, 0.8);
+    color: #FFFFFF;
+    border: 1px solid rgba(42, 42, 42, 0.5);
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 14px;
+    caret-color: #0078FF;
+}
+
+.login-dialog-prompt-entry:focus {
+    border-color: #0078FF;
+    box-shadow: 0 0 16px rgba(0, 120, 255, 0.2);
+}
+
+.login-dialog-button {
+    background: #0078FF;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 200ms ease;
+}
+
+.login-dialog-button:hover {
+    background: #1A8AFF;
+    box-shadow: 0 0 24px rgba(0, 120, 255, 0.3);
+}
+
+.login-dialog-button:active {
+    background: #0066DD;
+}
+
+.login-dialog-button.cancel {
+    background: transparent;
+    border: 1px solid rgba(42, 42, 42, 0.5);
+    color: #A0A0A0;
+}
+
+.login-dialog-button.cancel:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: #FFFFFF;
+}
+
+.login-dialog-clock {
+    font-size: 64px;
+    font-weight: 200;
+    color: #FFFFFF;
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.5);
+    letter-spacing: 2px;
+}
+
+.login-dialog-date {
+    font-size: 16px;
+    color: #A0A0A0;
+    margin-bottom: 32px;
+}
+
+.login-dialog-footer {
+    font-size: 11px;
+    color: rgba(160, 160, 160, 0.5);
+    margin-top: 24px;
+}
+
+.login-dialog-footer .login-dialog-button {
+    background: transparent;
+    color: rgba(160, 160, 160, 0.5);
+    padding: 4px 8px;
+}
+
+/* Power button */
+.login-dialog-power-button {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(42, 42, 42, 0.5);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    transition: all 200ms ease;
+}
+
+.login-dialog-power-button:hover {
+    background: rgba(255, 23, 68, 0.2);
+    border-color: #FF1744;
+}
+
+/* Caps lock warning */
+.caps-lock-warning {
+    color: #FFD600;
+    font-size: 12px;
+}
+
+/* Unlock dialog */
+.unlock-dialog {
+    background: transparent;
+}
+
+/* Screen shield */
+#screenShield {
+    background: #0A0A0A;
+}
+
+/* Notification */
+.login-dialog-notification {
+    background: rgba(26, 26, 26, 0.9);
+    border: 1px solid rgba(42, 42, 42, 0.5);
+    border-radius: 12px;
+    padding: 12px 16px;
+    margin: 4px 0;
+}
+
+/* Session list */
+.login-dialog-session-list {
+    spacing: 8px;
+}
+
+.login-dialog-session-list-item {
+    border-radius: 8px;
+    padding: 8px 16px;
+    background: rgba(36, 36, 36, 0.8);
+    color: #A0A0A0;
+    transition: all 200ms ease;
+}
+
+.login-dialog-session-list-item:hover {
+    background: rgba(0, 120, 255, 0.1);
+    color: #FFFFFF;
+}
+
+.login-dialog-session-list-item:selected {
+    background: rgba(0, 120, 255, 0.2);
+    color: #0078FF;
+    border: 1px solid #0078FF;
+}

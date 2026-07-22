@@ -1,6 +1,4 @@
 # Maintainer: Prometheus OS Team <dev@prometheus-os.dev>
-# Contributor: Prometheus OS Developers
-
 pkgname=prometheus-meta
 pkgver=0.1.0
 pkgrel=1
@@ -13,6 +11,8 @@ depends=(
     # Kernel
     'linux-zen'
     'linux-firmware'
+    'intel-ucode'
+    'amd-ucode'
     
     # Graphics
     'mesa'
@@ -32,48 +32,137 @@ depends=(
     'pipewire-jack'
     'wireplumber'
     'helvum'
+    'easyeffects'
     
-    # Display
+    # Display & Desktop
     'wlroots'
     'wayland'
     'wayland-protocols'
     'libxkbcommon'
     'libinput'
     
+    # GNOME Desktop (optional - user can choose)
+    'gnome'
+    'gnome-extra'
+    'gnome-tweaks'
+    'gnome-shell-extensions'
+    'gdm'
+    'mutter'
+    'gsettings-desktop-schemas'
+    
+    # GNOME Performance & Integration
+    'gnome-browser-connector'
+    'adwaita-icon-theme'
+    'adwaita-fonts'
+    'dconf-editor'
+    'gnome-power-manager'
+    
+    # System
+    'systemd'
+    'systemd-boot'
+    'plymouth'
+    'plymouth-theme-prometheus'
+    
     # Filesystem
     'btrfs-progs'
     'snapper'
     'snap-pac'
-    
-    # Boot
-    'systemd'
-    'systemd-boot'
-    'plymouth'
+    'snap-pac-grub'
     
     # Security
     'sbctl'
     'apparmor'
     'bubblewrap'
+    'apparmor-utils'
+    'audit'
     
-    # Prometheus Components
+    # AUR helper
+    'yay'
+    
+    # Package management
+    'flatpak'
+    'discover'
+    'packagekit-qt6'
+    
+    # Prometheus Core Components
     'prometheus-compositor'
     'prometheus-desktop'
     'prometheus-ai'
     'prometheus-apps'
+    'prometheus-security'
     
-    # Runtime
+    # Prometheus GNOME Integration
+    'prometheus-gnome-session'
+    'prometheus-gnome-theme'
+    'prometheus-gnome-extensions'
+    
+    # Runtimes
     'python'
+    'python-pip'
     'nodejs'
+    'npm'
     'rust'
+    'cargo'
+    
+    # Development
+    'base-devel'
+    'git'
+    'cmake'
+    'clang'
+    'lld'
+    'lldb'
+    'gdb'
     
     # Fonts
     'inter-font'
     'noto-fonts'
+    'noto-fonts-emoji'
+    'jetbrains-mono'
+    'ttc-iosevka'
+    'nerd-fonts-complete'
+    
+    # Terminal
+    'alacritty'
+    'kitty'
+    
+    # Network
+    'networkmanager'
+    'network-manager-applet'
+    'iwd'
+    'bluez'
+    'bluez-utils'
+    
+    # Printing
+    'cups'
+    'cups-pdf'
+    'hplip'
+    
+    # Bluetooth
+    'pipewire-audio'
+    'pulseaudio-bluetooth'
     
     # Utilities
     'pacman-contrib'
     'reflector'
     'fwupd'
+    'htop'
+    'btop'
+    'fastfetch'
+    'neofetch'
+    'ripgrep'
+    'fd'
+    'bat'
+    'eza'
+    'zoxide'
+    'fzf'
+    'tmux'
+    'starship'
+    
+    # Virtualization
+    'docker'
+    'docker-compose'
+    'virt-manager'
+    'qemu-desktop'
 )
 
 optdepends=(
@@ -81,7 +170,15 @@ optdepends=(
     'docker: container development'
     'ros2: robotics support'
     'arduino-cli: Arduino development'
-    'esp-idf: ESP32 development'
+    'esp-idf-git: ESP32 development'
+    'obs-studio: streaming and recording'
+    'kdenlive: video editing'
+    'gimp: image editing'
+    'blender: 3D modeling'
+    'godot: game development'
+    'steam: gaming'
+    'lutris: game launcher'
+    'wine: Windows compatibility'
 )
 
 install=prometheus.install
@@ -90,11 +187,12 @@ source=()
 sha256sums=('SKIP')
 
 package() {
+    # OS identification
     mkdir -p "$pkgdir/usr/share/doc/prometheus"
     mkdir -p "$pkgdir/etc/prometheus"
     
-    # OS release file
-    cat > "$pkgdir/etc/os-release" << EOF
+    # OS release
+    cat > "$pkgdir/etc/os-release" << 'EOF'
 NAME="Prometheus OS"
 ID=prometheus
 PRETTY_NAME="Prometheus OS 0.1 (Prometheus)"
@@ -104,12 +202,68 @@ ID_LIKE=arch
 HOME_URL="https://prometheus-os.dev"
 DOCUMENTATION_URL="https://docs.prometheus-os.dev"
 SUPPORT_URL="https://community.prometheus-os.dev"
-BUG_REPORT_URL="https://github.com/prometheus-os/prometheus/issues"
+BUG_REPORT_URL="https://github.com/prometheus-os/os/issues"
 LOGO=prometheus
 EOF
     
-    # Prometheus OS release
-    cat > "$pkgdir/etc/prometheus-release" << EOF
+    # Prometheus release file
+    cat > "$pkgdir/etc/prometheus-release" << 'EOF'
 Prometheus OS release 0.1 (Prometheus)
 EOF
+    
+    # Default session symlink
+    mkdir -p "$pkgdir/etc/systemd/system/gdm.service.d"
+    cat > "$pkgdir/etc/systemd/system/gdm.service.d/10-prometheus-session.conf" << 'EOF'
+[Service]
+Environment=XDG_SESSION_TYPE=wayland
+Environment=GDK_BACKEND=wayland
+Environment=CLUTTER_BACKEND=wayland
+EOF
+    
+    # Boot optimization
+    mkdir -p "$pkgdir/etc/systemd/system/systemd-logind.service.d"
+    cat > "$pkgdir/etc/systemd/system/systemd-logind.service.d/10-prometheus.conf" << 'EOF'
+[Service]
+Environment=HANDLE_POWER_KEY=suspend
+Environment=HANDLE_SUSPEND_KEY=suspend
+Environment=HANDLE_HIBERNATE_KEY=hibernate
+Environment=HANDLE_LID_SWITCH=suspend
+Environment=IdleAction=ignore
+EOF
+    
+    # Configure GDM defaults
+    mkdir -p "$pkgdir/etc/dconf/db/gdm.d"
+    cat > "$pkgdir/etc/dconf/db/gdm.d/00-prometheus" << 'DCONF'
+[org/gnome/desktop/interface]
+gtk-theme='Prometheus-Dark'
+icon-theme='Prometheus-Icons'
+cursor-theme='prometheus-cursor'
+font-name='Inter 10'
+color-scheme='prefer-dark'
+
+[org/gnome/desktop/background]
+picture-uri='file:///usr/share/backgrounds/prometheus/default.png'
+
+[org/gnome/desktop/screensaver]
+picture-uri='file:///usr/share/backgrounds/prometheus/lock.png'
+DCONF
+    
+    # Configure dconf database
+    dconf update "$pkgdir/etc/dconf" 2>/dev/null || true
+    
+    # Create default user skel
+    mkdir -p "$pkgdir/etc/skel/.config"
+    mkdir -p "$pkgdir/etc/skel/.local/share/gnome-shell"
+    
+    # Enable Prometheus extensions by default
+    echo "prometheus-ai@prometheus-os.dev,prometheus-dashboard@prometheus-os.dev,prometheus-layout@prometheus-os.dev" \
+        > "$pkgdir/etc/skel/.local/share/gnome-shell/enabled-extensions"
+    
+    cat > "$pkgdir/etc/skel/.config/prometheus.conf" << 'CONF'
+[desktop]
+preferred_environment = "gnome"
+autostart_ai = true
+theme = "prometheus-dark"
+first_run = false
+CONF
 }

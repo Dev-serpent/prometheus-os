@@ -1,0 +1,4 @@
+[GNOME Session]
+Name=Prometheus
+RequiredComponents=gnome-shell;mutter;gnome-settings-daemon;
+DefaultApps=org.gnome.Nautilus;org.gnome.gedit;org.gnome.Epiphany;

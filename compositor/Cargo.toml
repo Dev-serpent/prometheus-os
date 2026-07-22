@@ -23,6 +23,8 @@ rayon.workspace = true
 image.workspace = true
 futures.workspace = true
 async-trait.workspace = true
+nix = "0.29"
+toml = "0.8"
 
 [features]
 default = ["x11"]

@@ -1,0 +1,396 @@
+// Prometheus OS GNOME Shell Theme
+// Dark glassmorphism with electric-blue accents
+
+$prometheus-bg: #0A0A0A;
+$prometheus-surface: #1A1A1A;
+$prometheus-surface2: #242424;
+$prometheus-border: #2A2A2A;
+$prometheus-text: #FFFFFF;
+$prometheus-text-secondary: #A0A0A0;
+$prometheus-accent: #0078FF;
+$prometheus-accent-hover: #1A8AFF;
+$prometheus-accent-glow: rgba(0, 120, 255, 0.3);
+$prometheus-danger: #FF1744;
+$prometheus-success: #00C853;
+$prometheus-warning: #FFD600;
+$prometheus-corner-radius: 12px;
+$prometheus-blur: 24px;
+
+// Glass effect mixin
+@mixin glass {
+    background-color: rgba($prometheus-surface, 0.85);
+    border: 1px solid rgba($prometheus-border, 0.5);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+@mixin glass-light {
+    background-color: rgba($prometheus-surface2, 0.7);
+    border: 1px solid rgba($prometheus-border, 0.3);
+    backdrop-filter: blur($prometheus-blur);
+}
+
+// Shell chrome
+#panel {
+    background-color: rgba(10, 10, 10, 0.75);
+    border: none;
+    border-bottom: 1px solid rgba(42, 42, 42, 0.5);
+    font-weight: 500;
+    height: 2.2em;
+    backdrop-filter: blur(24px);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+
+    .panel-button {
+        color: $prometheus-text-secondary;
+        border-radius: 8px;
+        padding: 0 10px;
+        transition: all 150ms ease-in-out;
+
+        &:hover {
+            color: $prometheus-text;
+            background: rgba($prometheus-accent, 0.1);
+            box-shadow: inset 0 0 8px rgba($prometheus-accent, 0.05);
+        }
+
+        &:active, &:overview, &:focus, &:checked {
+            color: $prometheus-accent;
+            background: rgba($prometheus-accent, 0.15);
+        }
+
+        .system-status-icon {
+            padding: 0 4px;
+        }
+
+        .app-menu-icon {
+            -st-icon-style: symbolic;
+            margin: 0 4px;
+        }
+    }
+
+    .panel-corner {
+        -panel-corner-radius: 0;
+        -panel-corner-background-color: transparent;
+    }
+}
+
+// Activities button
+#panelActivities {
+    color: $prometheus-accent;
+    font-weight: 600;
+}
+
+// App menu
+.app-menu {
+    @include glass;
+    border-radius: $prometheus-corner-radius;
+    padding: 8px;
+    margin: 4px;
+
+    .app-menu-item {
+        border-radius: 8px;
+        padding: 8px 12px;
+        transition: all 100ms;
+
+        &:hover {
+            background: rgba($prometheus-accent, 0.1);
+        }
+
+        &:active {
+            background: rgba($prometheus-accent, 0.2);
+        }
+    }
+}
+
+// Overview
+#overview {
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(48px);
+}
+
+// Search
+.search-entry {
+    border-radius: 24px;
+    border: 2px solid rgba($prometheus-border, 0.5);
+    background: rgba($prometheus-surface, 0.8);
+    color: $prometheus-text;
+    padding: 8px 16px;
+    width: 320px;
+    transition: all 200ms;
+    backdrop-filter: blur(12px);
+
+    &:focus {
+        border-color: $prometheus-accent;
+        box-shadow: 0 0 20px $prometheus-accent-glow;
+        background: rgba($prometheus-surface, 0.95);
+    }
+
+    .search-entry-icon {
+        color: $prometheus-text-secondary;
+        icon-size: 1.2em;
+    }
+}
+
+// Window picker
+.window-caption {
+    @include glass;
+    border-radius: $prometheus-corner-radius;
+    padding: 8px 12px;
+    color: $prometheus-text;
+    font-weight: 500;
+}
+
+.window-close {
+    background-color: $prometheus-danger;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    transition: all 150ms;
+
+    &:hover {
+        background-color: #FF5252;
+        transform: scale(1.1);
+    }
+}
+
+// Workspace switcher
+.workspace-switcher {
+    spacing: 4px;
+    padding: 8px;
+    @include glass-light;
+    border-radius: $prometheus-corner-radius;
+}
+
+.workspace-thumbnails {
+    spacing: 8px;
+    padding: 8px;
+}
+
+.workspace-thumbnail {
+    border-radius: 8px;
+    border: 2px solid transparent;
+    transition: all 200ms;
+
+    &:hover {
+        border-color: rgba($prometheus-accent, 0.3);
+    }
+
+    &:active, &:selected {
+        border-color: $prometheus-accent;
+        box-shadow: 0 0 16px $prometheus-accent-glow;
+    }
+}
+
+// App grid
+.icon-grid {
+    spacing: 24px;
+    -shell-grid-item-size: 100px;
+}
+
+.app-well-app {
+    .overview-icon {
+        border-radius: $prometheus-corner-radius;
+        padding: 8px;
+        transition: all 150ms;
+    }
+
+    &:hover .overview-icon {
+        background: rgba($prometheus-accent, 0.1);
+        transform: scale(1.05);
+    }
+
+    &:active .overview-icon {
+        background: rgba($prometheus-accent, 0.2);
+    }
+}
+
+// Dash
+#dash {
+    margin: 8px;
+    padding: 4px;
+    @include glass-light;
+    border-radius: 24px;
+}
+
+.dash-item-container {
+    spacing: 4px;
+}
+
+.dash-label {
+    @include glass;
+    border-radius: 8px;
+    padding: 4px 10px;
+    color: $prometheus-text;
+    font-weight: 500;
+}
+
+// Calendar / Notifications
+.message-list {
+    @include glass-light;
+    border-radius: $prometheus-corner-radius;
+    padding: 8px;
+}
+
+.message-list-controls {
+    padding: 8px;
+}
+
+.notification-banner {
+    @include glass;
+    border-radius: $prometheus-corner-radius;
+    margin: 4px 0;
+    padding: 12px;
+}
+
+// Calendar popup
+.popup-menu {
+    @include glass;
+    border-radius: $prometheus-corner-radius;
+    padding: 4px;
+    min-width: 200px;
+}
+
+.popup-menu-item {
+    border-radius: 8px;
+    padding: 8px 12px;
+    color: $prometheus-text;
+    transition: all 100ms;
+
+    &:hover {
+        background: rgba($prometheus-accent, 0.1);
+    }
+
+    &:active {
+        background: rgba($prometheus-accent, 0.2);
+    }
+}
+
+// Quick settings
+.quick-settings {
+    @include glass;
+    border-radius: $prometheus-corner-radius;
+    padding: 12px;
+}
+
+// OSD
+.osd-window {
+    @include glass;
+    border-radius: $prometheus-corner-radius;
+    padding: 16px;
+    color: $prometheus-text;
+}
+
+// Screenshield / Lock screen
+#lockDialogGroup {
+    background: rgba(10, 10, 10, 0.98);
+    backdrop-filter: blur(48px);
+}
+
+.login-dialog {
+    border-radius: $prometheus-corner-radius;
+    @include glass;
+    padding: 32px;
+}
+
+// Toasts
+.notification-toast {
+    @include glass;
+    border-radius: $prometheus-corner-radius;
+    margin: 8px;
+    padding: 12px 16px;
+}
+
+// Scrollbar styling
+StScrollBar {
+    padding: 0;
+
+    StButton {
+        &#vhandle, &#hhandle {
+            background-color: rgba($prometheus-text, 0.15);
+            border-radius: 8px;
+            transition: all 100ms;
+
+            &:hover {
+                background-color: rgba($prometheus-text, 0.3);
+            }
+        }
+    }
+}
+
+// Tooltips
+.tooltip {
+    @include glass;
+    border-radius: 8px;
+    padding: 6px 10px;
+    color: $prometheus-text;
+    font-weight: 500;
+}
+
+// Sliders
+.slider {
+    -slider-height: 4px;
+    -slider-background-color: rgba($prometheus-text, 0.1);
+    -slider-border-color: transparent;
+    -slider-active-background-color: $prometheus-accent;
+    -slider-handle-radius: 10px;
+    -slider-handle-border-color: $prometheus-accent;
+    -slider-handle-border-width: 2px;
+}
+
+// Buttons
+.button {
+    border-radius: 8px;
+    padding: 6px 16px;
+    color: $prometheus-text;
+    background: rgba($prometheus-surface2, 0.8);
+    border: 1px solid rgba($prometheus-border, 0.5);
+    transition: all 150ms;
+
+    &:hover {
+        background: rgba($prometheus-accent, 0.1);
+        border-color: rgba($prometheus-accent, 0.3);
+    }
+
+    &:active {
+        background: rgba($prometheus-accent, 0.2);
+    }
+
+    &:focus {
+        box-shadow: 0 0 8px $prometheus-accent-glow;
+    }
+}
+
+// Switches
+.toggle-switch {
+    width: 44px;
+    height: 22px;
+    background: rgba($prometheus-text, 0.15);
+    border-radius: 11px;
+    transition: all 150ms;
+
+    &:checked {
+        background: $prometheus-accent;
+        box-shadow: 0 0 12px $prometheus-accent-glow;
+    }
+}
+
+// Modal dialogs
+.modal-dialog {
+    @include glass;
+    border-radius: $prometheus-corner-radius;
+    padding: 24px;
+}
+
+// Hot corner
+#overview-corner {
+    background-color: transparent;
+}
+
+// Running indicator style
+.app-well-app.running > .overview-icon {
+    border-bottom: 2px solid $prometheus-accent;
+}
+
+// Workspace animation
+.workspace-animation {
+    transition-duration: 200ms;
+}
