@@ -1,0 +1,15 @@
+[package]
+name = "prometheus-sdk"
+version = "0.1.0"
+edition = "2024"
+description = "Prometheus OS Rust SDK - Build native AI-powered applications"
+
+[dependencies]
+serde.workspace = true
+serde_json.workspace = true
+tokio.workspace = true
+anyhow.workspace = true
+thiserror.workspace = true
+
+[lib]
+name = "prometheus_sdk"

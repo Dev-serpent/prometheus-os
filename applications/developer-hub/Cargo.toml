@@ -1,0 +1,8 @@
+[package]
+name = "prometheus-developer-hub"
+version = "0.1.0"
+edition = "2024"
+description = "Prometheus OS developer hub and SDK center"
+
+[dependencies]
+anyhow.workspace = true

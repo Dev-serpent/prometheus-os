@@ -1,0 +1,18 @@
+post_install() {
+    echo ":: Prometheus OS has been installed."
+    echo ":: Run 'prometheus-bootstrap' to complete the setup."
+    echo ":: Reboot and select 'Prometheus' from your boot menu."
+    
+    # Enable essential services
+    systemctl enable --quiet systemd-boot-update.service 2>/dev/null || true
+    systemctl enable --quiet snapper-timeline.timer 2>/dev/null || true
+    systemctl enable --quiet snapper-cleanup.timer 2>/dev/null || true
+}
+
+post_upgrade() {
+    echo ":: Prometheus OS has been updated."
+}
+
+pre_remove() {
+    echo ":: Removing Prometheus OS components..."
+}

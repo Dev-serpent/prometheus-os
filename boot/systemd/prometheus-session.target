@@ -1,0 +1,4 @@
+[Unit]
+Description=Prometheus OS Session Target
+Documentation=https://prometheus-os.dev
+BindsTo=graphical-session.target

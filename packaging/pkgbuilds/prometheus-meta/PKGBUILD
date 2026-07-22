@@ -1,0 +1,115 @@
+# Maintainer: Prometheus OS Team <dev@prometheus-os.dev>
+# Contributor: Prometheus OS Developers
+
+pkgname=prometheus-meta
+pkgver=0.1.0
+pkgrel=1
+pkgdesc="Prometheus OS - AI-First Operating System (meta-package)"
+arch=('x86_64')
+url="https://prometheus-os.dev"
+license=('GPL3')
+groups=('prometheus-os')
+depends=(
+    # Kernel
+    'linux-zen'
+    'linux-firmware'
+    
+    # Graphics
+    'mesa'
+    'mesa-utils'
+    'vulkan-icd-loader'
+    'vulkan-intel'
+    'vulkan-radeon'
+    'nvidia-dkms'
+    'libva'
+    'libva-intel-driver'
+    'libva-mesa-driver'
+    
+    # Audio
+    'pipewire'
+    'pipewire-alsa'
+    'pipewire-pulse'
+    'pipewire-jack'
+    'wireplumber'
+    'helvum'
+    
+    # Display
+    'wlroots'
+    'wayland'
+    'wayland-protocols'
+    'libxkbcommon'
+    'libinput'
+    
+    # Filesystem
+    'btrfs-progs'
+    'snapper'
+    'snap-pac'
+    
+    # Boot
+    'systemd'
+    'systemd-boot'
+    'plymouth'
+    
+    # Security
+    'sbctl'
+    'apparmor'
+    'bubblewrap'
+    
+    # Prometheus Components
+    'prometheus-compositor'
+    'prometheus-desktop'
+    'prometheus-ai'
+    'prometheus-apps'
+    
+    # Runtime
+    'python'
+    'nodejs'
+    'rust'
+    
+    # Fonts
+    'inter-font'
+    'noto-fonts'
+    
+    # Utilities
+    'pacman-contrib'
+    'reflector'
+    'fwupd'
+)
+
+optdepends=(
+    'flatpak: containerized application support'
+    'docker: container development'
+    'ros2: robotics support'
+    'arduino-cli: Arduino development'
+    'esp-idf: ESP32 development'
+)
+
+install=prometheus.install
+
+source=()
+sha256sums=('SKIP')
+
+package() {
+    mkdir -p "$pkgdir/usr/share/doc/prometheus"
+    mkdir -p "$pkgdir/etc/prometheus"
+    
+    # OS release file
+    cat > "$pkgdir/etc/os-release" << EOF
+NAME="Prometheus OS"
+ID=prometheus
+PRETTY_NAME="Prometheus OS 0.1 (Prometheus)"
+VERSION_ID="0.1"
+VERSION_CODENAME=prometheus
+ID_LIKE=arch
+HOME_URL="https://prometheus-os.dev"
+DOCUMENTATION_URL="https://docs.prometheus-os.dev"
+SUPPORT_URL="https://community.prometheus-os.dev"
+BUG_REPORT_URL="https://github.com/prometheus-os/prometheus/issues"
+LOGO=prometheus
+EOF
+    
+    # Prometheus OS release
+    cat > "$pkgdir/etc/prometheus-release" << EOF
+Prometheus OS release 0.1 (Prometheus)
+EOF
+}

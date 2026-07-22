@@ -1,0 +1,8 @@
+[package]
+name = "prometheus-snapshot-manager"
+version = "0.1.0"
+edition = "2024"
+description = "Prometheus OS Btrfs snapshot manager"
+
+[dependencies]
+anyhow.workspace = true

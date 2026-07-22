@@ -1,0 +1,8 @@
+[package]
+name = "prometheus-monitor"
+version = "0.1.0"
+edition = "2024"
+description = "Prometheus OS real-time system monitor"
+
+[dependencies]
+anyhow.workspace = true

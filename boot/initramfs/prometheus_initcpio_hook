@@ -1,0 +1,14 @@
+# Prometheus OS mkinitcpio hook for automatic Btrfs rollback
+
+build() {
+    add_binary "btrfs"
+    add_binary "findmnt"
+    add_runscript
+}
+
+help() {
+    cat <<HELPEOF
+This hook enables automatic Btrfs snapshot rollback
+when the system fails to boot properly.
+HELPEOF
+}

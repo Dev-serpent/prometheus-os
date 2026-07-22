@@ -1,0 +1,10 @@
+[package]
+name = "prometheus-pkg"
+version = "0.1.0"
+edition = "2024"
+description = "Prometheus OS package manager GUI"
+
+[dependencies]
+anyhow.workspace = true
+serde.workspace = true
+tokio.workspace = true

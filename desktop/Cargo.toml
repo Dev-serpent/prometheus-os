@@ -1,0 +1,17 @@
+[package]
+name = "prometheus-desktop"
+version = "0.1.0"
+edition = "2024"
+description = "Prometheus OS desktop shell - AI-first desktop environment"
+
+[dependencies]
+serde.workspace = true
+serde_json.workspace = true
+tokio.workspace = true
+tracing.workspace = true
+anyhow.workspace = true
+parking_lot.workspace = true
+dashmap.workspace = true
+image.workspace = true
+futures.workspace = true
+rayon.workspace = true

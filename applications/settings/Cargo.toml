@@ -1,0 +1,11 @@
+[package]
+name = "prometheus-settings"
+version = "0.1.0"
+edition = "2024"
+description = "Prometheus OS settings center"
+
+[dependencies]
+serde.workspace = true
+serde_json.workspace = true
+tokio.workspace = true
+anyhow.workspace = true

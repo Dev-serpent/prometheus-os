@@ -1,0 +1,22 @@
+#!/usr/bin/bash
+
+build() {
+    local mod
+    for mod in btrfs; do
+        add_module "$mod"
+    done
+
+    add_binary "btrfs"
+    add_binary "findmnt"
+    add_binary "mount"
+    add_binary "umount"
+
+    add_runscript
+}
+
+help() {
+    cat <<HELPEOF
+  prometheus - Prometheus OS automatic rollback on boot failure.
+  Detects failed boots and restores the last working Btrfs snapshot.
+HELPEOF
+}

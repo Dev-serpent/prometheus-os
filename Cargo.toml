@@ -1,0 +1,53 @@
+[workspace]
+resolver = "2"
+members = [
+    "compositor",
+    "desktop",
+    "ai-core",
+    "sdk/rust",
+    "applications/terminal",
+    "applications/files",
+    "applications/browser",
+    "applications/settings",
+    "applications/task-manager",
+    "applications/dashboard",
+    "applications/package-manager",
+    "applications/system-monitor",
+    "applications/snapshot-manager",
+    "applications/plugin-manager",
+    "applications/developer-hub",
+]
+
+[workspace.dependencies]
+wlroots = "0.17"
+wayland-server = "0.30"
+wayland-client = "0.30"
+wayland-protocols = "0.31"
+xkbcommon = "0.7"
+libc = "0.2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tokio = { version = "1", features = ["full"] }
+tracing = "0.1"
+tracing-subscriber = "0.3"
+anyhow = "1"
+thiserror = "2"
+uuid = { version = "1", features = ["v4", "serde"] }
+chrono = { version = "0.4", features = ["serde"] }
+parking_lot = "0.12"
+dashmap = "6"
+rayon = "1"
+image = "0.25"
+futures = "0.3"
+async-trait = "0.1"
+
+[profile.release]
+opt-level = 3
+lto = "fat"
+codegen-units = 1
+strip = true
+panic = "abort"
+
+[profile.dev]
+opt-level = 0
+debug = true

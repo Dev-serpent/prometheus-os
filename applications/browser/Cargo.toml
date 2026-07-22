@@ -1,0 +1,8 @@
+[package]
+name = "prometheus-browser"
+version = "0.1.0"
+edition = "2024"
+description = "Prometheus OS browser launcher"
+
+[dependencies]
+anyhow.workspace = true

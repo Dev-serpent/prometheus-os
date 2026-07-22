@@ -1,0 +1,8 @@
+[package]
+name = "prometheus-task-manager"
+version = "0.1.0"
+edition = "2024"
+description = "Prometheus OS task and process manager"
+
+[dependencies]
+anyhow.workspace = true

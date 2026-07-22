@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Prometheus
+Comment=Prometheus OS - AI-First Desktop Environment
+Exec=/usr/lib/systemd/systemd --user --target=prometheus-session.target
+Type=Application
+DesktopNames=Prometheus
+Keywords=prometheus;ai;desktop;

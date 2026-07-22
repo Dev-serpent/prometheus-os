@@ -1,0 +1,23 @@
+[Unit]
+Description=Prometheus AI Core Service
+Documentation=https://prometheus-os.dev
+After=network.target prometheus-compositor.service
+Wants=network.target
+Before=prometheus-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/prometheus-ai
+Restart=always
+RestartSec=5
+Environment=OMP_NUM_THREADS=50%
+Environment=MESA_GL_VERSION_OVERRIDE=4.6
+Nice=-10
+CPUSchedulingPolicy=fifo
+CPUSchedulingPriority=99
+IOWeight=1000
+LimitNOFILE=65536
+OOMScoreAdjust=-1000
+
+[Install]
+WantedBy=prometheus-session.target

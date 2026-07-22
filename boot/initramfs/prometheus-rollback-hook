@@ -1,0 +1,63 @@
+#!/usr/bin/ash
+
+# Prometheus OS Initramfs Hook
+# Automatic Btrfs snapshot rollback on boot failure
+
+PROMETHEUS_ROOT="PROMETHEUS_ROOT"
+
+rollback_if_needed() {
+    local current_root
+    current_root=$(findmnt -n -o SOURCE /)
+    
+    if [ -z "$current_root" ]; then
+        echo "PROMETHEUS: No root filesystem found, attempting rollback..."
+        perform_rollback
+        return
+    fi
+
+    # Check if this is a fresh boot (not a rollback attempt)
+    local boot_count
+    boot_count=$(btrfs property get -t subvol / | grep -c "ro=true" 2>/dev/null || echo 0)
+    
+    if [ "$boot_count" -gt 0 ]; then
+        echo "PROMETHEUS: Previous boot may have failed, initiating rollback..."
+        perform_rollback
+    fi
+}
+
+perform_rollback() {
+    echo "PROMETHEUS: Performing automatic Btrfs rollback..."
+    
+    # Find the most recent working snapshot
+    local latest_snapshot
+    latest_snapshot=$(btrfs subvolume list -s / | tail -n 1 | awk '{print $NF}')
+    
+    if [ -n "$latest_snapshot" ]; then
+        echo "PROMETHEUS: Rolling back to: $latest_snapshot"
+        btrfs subvolume set-default "$latest_snapshot" /
+        echo "PROMETHEUS: Rollback complete"
+    else
+        echo "PROMETHEUS: No snapshots found, booting in recovery mode"
+    fi
+}
+
+# Health check
+health_check() {
+    echo "PROMETHEUS: Running system health check..."
+    
+    # Check critical filesystems
+    if ! mountpoint -q /usr; then
+        echo "PROMETHEUS: /usr not mounted, attempting rollback..."
+        perform_rollback
+    fi
+    
+    echo "PROMETHEUS: Health check passed"
+}
+
+main() {
+    echo "PROMETHEUS: Initramfs hook loaded"
+    health_check
+    rollback_if_needed
+}
+
+main

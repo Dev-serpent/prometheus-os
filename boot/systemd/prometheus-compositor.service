@@ -1,0 +1,27 @@
+[Unit]
+Description=Prometheus OS Compositor
+Documentation=https://prometheus-os.dev
+After=systemd-user-sessions.service
+Before=graphical-session.target
+Wants=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/prometheus-compositor
+Restart=on-failure
+RestartSec=3
+Environment=XDG_SESSION_TYPE=wayland
+Environment=XDG_CURRENT_DESKTOP=Prometheus
+Environment=WAYLAND_DISPLAY=wayland-1
+Environment=MOZ_ENABLE_WAYLAND=1
+Environment=QT_QPA_PLATFORM=wayland
+Environment=GDK_BACKEND=wayland
+Environment=SDL_VIDEODRIVER=wayland
+Environment=_JAVA_AWT_WM_NONREPARENTING=1
+Environment=CLUTTER_BACKEND=wayland
+Environment=ELM_DISPLAY=wl
+LimitNOFILE=16384
+OOMScoreAdjust=-500
+
+[Install]
+WantedBy=prometheus-session.target
