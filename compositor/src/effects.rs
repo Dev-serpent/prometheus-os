@@ -5,17 +5,17 @@ use parking_lot::RwLock;
 pub struct BlurManager {
     config: Arc<RwLock<CompositorConfig>>,
     enabled: bool,
-
     radius: u32,
     passes: u32,
 }
 
 impl BlurManager {
     pub fn new(config: Arc<RwLock<CompositorConfig>>) -> Self {
-        let cfg = config.read();
+        let enabled = config.read().effects.enable_blur;
+        let radius = config.read().effects.blur_size;
         Self {
-            enabled: cfg.effects.enable_blur,
-            radius: cfg.effects.blur_size,
+            enabled,
+            radius,
             passes: 3,
             config,
         }
@@ -25,14 +25,10 @@ impl BlurManager {
         if !self.enabled {
             return;
         }
-
         self.render_blur();
     }
 
-    fn render_blur(&self) {
-        // GPU-based Kawase blur or dual Kawase blur
-        // for maximum performance
-    }
+    fn render_blur(&self) {}
 }
 
 pub struct GlowManager {
@@ -43,10 +39,11 @@ pub struct GlowManager {
 
 impl GlowManager {
     pub fn new(config: Arc<RwLock<CompositorConfig>>) -> Self {
-        let cfg = config.read();
+        let enabled = config.read().effects.enable_glow;
+        let intensity = config.read().effects.glow_intensity;
         Self {
-            enabled: cfg.effects.enable_glow,
-            intensity: cfg.effects.glow_intensity,
+            enabled,
+            intensity,
             config,
         }
     }
@@ -55,13 +52,10 @@ impl GlowManager {
         if !self.enabled {
             return;
         }
-
         self.render_glow();
     }
 
-    fn render_glow(&self) {
-        // GPU-based glow effect using Gaussian blur + additive blending
-    }
+    fn render_glow(&self) {}
 }
 
 pub struct ShadowManager {
@@ -72,10 +66,11 @@ pub struct ShadowManager {
 
 impl ShadowManager {
     pub fn new(config: Arc<RwLock<CompositorConfig>>) -> Self {
-        let cfg = config.read();
+        let enabled = config.read().effects.enable_shadows;
+        let size = config.read().effects.shadow_size;
         Self {
-            enabled: cfg.effects.enable_shadows,
-            size: cfg.effects.shadow_size,
+            enabled,
+            size,
             config,
         }
     }
@@ -84,13 +79,10 @@ impl ShadowManager {
         if !self.enabled {
             return;
         }
-
         self.render_shadow();
     }
 
-    fn render_shadow(&self) {
-        // GPU-based drop shadow
-    }
+    fn render_shadow(&self) {}
 }
 
 pub struct SurfaceId(u64);

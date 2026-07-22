@@ -2,7 +2,6 @@ use std::collections::HashMap;
 use std::sync::Arc;
 use chrono::{DateTime, Utc};
 use dashmap::DashMap;
-use parking_lot::RwLock;
 use uuid::Uuid;
 
 #[derive(Clone)]
@@ -14,15 +13,15 @@ pub struct MemoryGraph {
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct MemoryNode {
-    id: Uuid,
-    node_type: NodeType,
-    content: String,
-    embedding: Option<Vec<f32>>,
-    created_at: DateTime<Utc>,
-    last_accessed: DateTime<Utc>,
-    access_count: u64,
-    importance: f32,
-    metadata: HashMap<String, String>,
+    pub id: Uuid,
+    pub node_type: NodeType,
+    pub content: String,
+    pub embedding: Option<Vec<f32>>,
+    pub created_at: DateTime<Utc>,
+    pub last_accessed: DateTime<Utc>,
+    pub access_count: u64,
+    pub importance: f32,
+    pub metadata: HashMap<String, String>,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
@@ -159,15 +158,5 @@ impl MemoryGraph {
 
     pub fn edge_count(&self) -> usize {
         self.edges.len()
-    }
-}
-
-impl Clone for MemoryGraph {
-    fn clone(&self) -> Self {
-        Self {
-            nodes: self.nodes.clone(),
-            edges: self.edges.clone(),
-            index: self.index.clone(),
-        }
     }
 }

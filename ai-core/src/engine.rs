@@ -67,7 +67,7 @@ struct AIState {
 
 impl AIEngine {
     pub fn new(
-        memory: MemoryGraph,
+        memory: Arc<MemoryGraph>,
         context: ContextManager,
         reasoning: ReasoningEngine,
         vision: VisionEngine,
@@ -77,7 +77,7 @@ impl AIEngine {
         let (command_tx, command_rx) = mpsc::channel(1024);
 
         Self {
-            memory: Arc::new(memory),
+            memory,
             context,
             reasoning,
             vision,

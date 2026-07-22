@@ -40,7 +40,7 @@ impl ReasoningEngine {
         let steps = vec![
             ReasoningStep::Understand(query.to_string()),
             ReasoningStep::Retrieve(memories.len() as u32),
-            ReasoningStep::Analyze(system_state),
+            ReasoningStep::Analyze(format!("active_window={:?}", system_state.active_window)),
             ReasoningStep::Plan,
             ReasoningStep::Execute,
             ReasoningStep::Verify,

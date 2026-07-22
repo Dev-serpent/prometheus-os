@@ -2,7 +2,13 @@
 name = "prometheus-dashboard"
 version = "0.1.0"
 edition = "2021"
-description = "Prometheus OS dashboard application"
+description = "Prometheus OS AI command center dashboard"
 
 [dependencies]
 anyhow.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+tokio.workspace = true
+parking_lot.workspace = true
+chrono.workspace = true
+libc.workspace = true

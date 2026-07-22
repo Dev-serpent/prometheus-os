@@ -192,7 +192,7 @@ impl SystemMonitor {
                         if let Some(prev) = &self.prev_cpu {
                             let delta_total = total.saturating_sub(prev.total);
                             let delta_work = work.saturating_sub(prev.work);
-                            let delta_idle = idle.saturating_sub(prev.idle);
+                            let _delta_idle = idle.saturating_sub(prev.idle);
                             let delta_iowait = iowait.saturating_sub(prev.iowait);
 
                             if delta_total > 0 {
@@ -346,7 +346,7 @@ impl SystemMonitor {
                     if mount.starts_with('/') && !mount.starts_with("/sys") && !mount.starts_with("/proc")
                         && !mount.starts_with("/dev") && !mount.starts_with("/run")
                     {
-                        if let Ok(usage) = fs_usage(mount) {
+                        if let Some(usage) = fs_usage(mount) {
                             self.disk.partitions.push(PartitionInfo {
                                 device: parts[0].to_string(),
                                 mount: mount.to_string(),
@@ -403,7 +403,7 @@ impl SystemMonitor {
                         speed = s.trim().parse().unwrap_or(0.0);
                     }
 
-                    let mut ip = String::from("--");
+                    let ip = String::from("--");
                     // Read IP address from /proc/net/fib_trie or similar
 
                     self.network.interfaces.push(InterfaceInfo {
@@ -433,7 +433,7 @@ impl SystemMonitor {
                 };
 
                 let stat_path = entry.path().join("stat");
-                let cmdline_path = entry.path().join("cmdline");
+                let _cmdline_path = entry.path().join("cmdline");
                 let status_path = entry.path().join("status");
 
                 if let Ok(content) = fs::read_to_string(&stat_path) {
@@ -444,13 +444,16 @@ impl SystemMonitor {
                         let threads: u32 = parts.get(19).and_then(|s| s.parse().ok()).unwrap_or(0);
 
                         let mem_mb = if let Ok(status) = fs::read_to_string(&status_path) {
+                            let mut found = 0.0;
                             for line in status.lines() {
                                 if line.starts_with("VmRSS:") {
-                                    let val: f64 = line.split_whitespace()
-                                        .nth(1).and_then(|s| s.parse().ok()).unwrap_or(0.0);
-                                    break val / 1024.0;
+                                    if let Some(val) = line.split_whitespace().nth(1).and_then(|s| s.parse::<f64>().ok()) {
+                                        found = val / 1024.0;
+                                    }
+                                    break;
                                 }
                             }
+                            found
                         } else { 0.0 };
 
                         let user = std::process::Command::new("ps")

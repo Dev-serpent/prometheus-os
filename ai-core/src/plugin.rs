@@ -1,6 +1,4 @@
 use std::collections::HashMap;
-use std::sync::Arc;
-use parking_lot::RwLock;
 
 pub struct PluginManager {
     plugins: HashMap<String, Plugin>,

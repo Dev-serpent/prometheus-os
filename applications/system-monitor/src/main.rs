@@ -33,7 +33,7 @@ fn main() -> anyhow::Result<()> {
 
 #[cfg(unix)]
 fn check_quit() -> bool {
-    use std::os::unix::io::RawFd;
+    
     let mut buf = [0u8; 1];
     let flags = unsafe { libc::fcntl(0, libc::F_GETFL, 0) };
     unsafe { libc::fcntl(0, libc::F_SETFL, flags | libc::O_NONBLOCK); }
@@ -118,7 +118,8 @@ fn render_display(m: &SystemMonitor) {
     // === Temperatures Section ===
     if !m.temperatures().is_empty() {
         println!("\n\x1b[38;2;0;120;255m━━━ TEMPERATURES ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\x1b[0m");
-        for t in &m.temperatures[..3.min(m.temperatures().len())] {
+        let temps = m.temperatures();
+        for t in &temps[..3.min(temps.len())] {
             println!("  {:<20} \x1b[{}m{:.0}°C\x1b[0m / {:.0}°C",
                 t.name, temp_color(t.temp_c), t.temp_c, t.max_temp_c);
         }

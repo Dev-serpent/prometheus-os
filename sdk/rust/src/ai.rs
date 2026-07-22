@@ -23,7 +23,7 @@ impl AIClient {
         Self { connected: false }
     }
 
-    pub async fn query(&self, query: AIQuery) -> anyhow::Result<AIResponse> {
+    pub async fn query(&self, _query: AIQuery) -> anyhow::Result<AIResponse> {
         // Send query to Prometheus AI Core
         Ok(AIResponse {
             text: String::new(),
@@ -32,7 +32,7 @@ impl AIClient {
         })
     }
 
-    pub async fn execute(&self, action: &str) -> anyhow::Result<()> {
+    pub async fn execute(&self, _action: &str) -> anyhow::Result<()> {
         Ok(())
     }
 

@@ -14,6 +14,7 @@ use voice::VoiceEngine;
 use automation::AutomationEngine;
 use context::ContextManager;
 use reasoning::ReasoningEngine;
+use std::sync::Arc;
 
 fn main() -> anyhow::Result<()> {
     tracing_subscriber::fmt()
@@ -26,7 +27,7 @@ fn main() -> anyhow::Result<()> {
     let runtime = tokio::runtime::Runtime::new()?;
 
     runtime.block_on(async {
-        let memory = MemoryGraph::new();
+        let memory = Arc::new(MemoryGraph::new());
         let context = ContextManager::new(memory.clone());
         let reasoning = ReasoningEngine::new(memory.clone());
         let vision = VisionEngine::new();

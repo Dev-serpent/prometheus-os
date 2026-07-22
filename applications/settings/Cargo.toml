@@ -2,7 +2,8 @@
 name = "prometheus-settings"
 version = "0.1.0"
 edition = "2021"
-description = "Prometheus OS settings application"
+description = "Prometheus OS settings center"
 
 [dependencies]
+serde = { workspace = true, features = ["derive"] }
 anyhow.workspace = true

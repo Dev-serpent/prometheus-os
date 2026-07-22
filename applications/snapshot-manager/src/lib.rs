@@ -127,8 +127,9 @@ impl SnapshotManager {
     }
 
     pub fn rollback(&self, config: &str, id: u64) -> anyhow::Result<()> {
+        let range = format!("{}..{}", id, id + 1);
         let status = Command::new("sudo")
-            .args(["snapper", "-c", config, "undochange", &id.to_string()..=&(id+1).to_string()])
+            .args(["snapper", "-c", config, "undochange", &range])
             .status()?;
 
         if !status.success() {

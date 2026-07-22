@@ -5,11 +5,11 @@ impl DesktopAPI {
         Self
     }
 
-    pub fn open_file(&self, path: &str) -> anyhow::Result<()> {
+    pub fn open_file(&self, _path: &str) -> anyhow::Result<()> {
         Ok(())
     }
 
-    pub fn open_url(&self, url: &str) -> anyhow::Result<()> {
+    pub fn open_url(&self, _url: &str) -> anyhow::Result<()> {
         Ok(())
     }
 
@@ -18,7 +18,7 @@ impl DesktopAPI {
         Ok(())
     }
 
-    pub fn set_clipboard(&self, text: &str) -> anyhow::Result<()> {
+    pub fn set_clipboard(&self, _text: &str) -> anyhow::Result<()> {
         Ok(())
     }
 

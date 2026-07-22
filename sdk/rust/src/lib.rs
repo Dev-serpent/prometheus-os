@@ -3,7 +3,6 @@ pub mod app;
 pub mod desktop;
 pub mod system;
 
-use serde::{Deserialize, Serialize};
 
 pub struct PrometheusSDK {
     version: String,

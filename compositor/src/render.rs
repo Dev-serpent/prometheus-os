@@ -98,7 +98,7 @@ impl Renderer {
         let mut device = String::new();
         let mut temp = 0.0;
 
-        if let Ok(pci) = fs::read_to_string("/sys/bus/pci/devices") {
+        if let Ok(_pci) = fs::read_to_string("/sys/bus/pci/devices") {
             for entry in fs::read_dir("/sys/class/drm").unwrap_or_else(|_| fs::read_dir("/dev/dri").unwrap()) {
                 if let Ok(entry) = entry {
                     let name = entry.file_name().to_string_lossy().to_string();
