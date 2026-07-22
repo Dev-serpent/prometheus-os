@@ -1,11 +1,8 @@
 [package]
 name = "prometheus-files"
 version = "0.1.0"
-edition = "2024"
+edition = "2021"
 description = "Prometheus OS file manager with AI-powered organization"
 
 [dependencies]
-serde.workspace = true
-serde_json.workspace = true
-tokio.workspace = true
 anyhow.workspace = true

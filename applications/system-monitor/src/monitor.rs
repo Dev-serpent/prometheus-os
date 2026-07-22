@@ -1,7 +1,4 @@
 use std::fs;
-use std::io::{self, BufRead};
-use std::time::{Duration, Instant};
-use std::collections::HashMap;
 
 pub struct SystemMonitor {
     cpu: CpuStats,
@@ -538,10 +535,13 @@ struct DiskUsage {
 }
 
 fn fs_usage(path: &str) -> Option<DiskUsage> {
-    #[cfg(target_os = "linux")]
+    use std::ffi::CString;
+    use std::mem;
+
+    let cpath = CString::new(path).ok()?;
+
     unsafe {
-        let mut stat: libc::statvfs = std::mem::zeroed();
-        let cpath = std::ffi::CString::new(path).ok()?;
+        let mut stat: libc::statvfs = mem::zeroed();
         if libc::statvfs(cpath.as_ptr(), &mut stat) == 0 {
             let block_size = stat.f_frsize as u64;
             let total = stat.f_blocks * block_size;

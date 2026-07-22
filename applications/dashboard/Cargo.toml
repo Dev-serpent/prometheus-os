@@ -1,11 +1,8 @@
 [package]
 name = "prometheus-dashboard"
 version = "0.1.0"
-edition = "2024"
-description = "Prometheus OS AI command center dashboard"
+edition = "2021"
+description = "Prometheus OS dashboard application"
 
 [dependencies]
-serde.workspace = true
-serde_json.workspace = true
-tokio.workspace = true
 anyhow.workspace = true

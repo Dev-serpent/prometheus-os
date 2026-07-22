@@ -1,8 +1,8 @@
 [package]
 name = "prometheus-plugin-manager"
 version = "0.1.0"
-edition = "2024"
-description = "Prometheus OS plugin manager"
+edition = "2021"
+description = "Prometheus OS plugin-manager application"
 
 [dependencies]
 anyhow.workspace = true

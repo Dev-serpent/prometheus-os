@@ -22,24 +22,28 @@ fn main() -> anyhow::Result<()> {
 
         thread::sleep(Duration::from_millis(100));
 
-        // Check for 'q' key to quit (in real terminal mode)
-        #[cfg(unix)]
-        unsafe {
-            use std::os::unix::io::RawFd;
-            let mut buf = [0u8; 1];
-            let flags = libc::fcntl(0, libc::F_GETFL, 0);
-            libc::fcntl(0, libc::F_SETFL, flags | libc::O_NONBLOCK);
-            if libc::read(0, buf.as_mut_ptr() as *mut _, 1) > 0 {
-                if buf[0] == b'q' {
-                    break;
-                }
-            }
-            libc::fcntl(0, libc::F_SETFL, flags);
+        // Check for 'q' key to quit
+        if check_quit() {
+            break;
         }
     }
 
     Ok(())
 }
+
+#[cfg(unix)]
+fn check_quit() -> bool {
+    use std::os::unix::io::RawFd;
+    let mut buf = [0u8; 1];
+    let flags = unsafe { libc::fcntl(0, libc::F_GETFL, 0) };
+    unsafe { libc::fcntl(0, libc::F_SETFL, flags | libc::O_NONBLOCK); }
+    let result = unsafe { libc::read(0, buf.as_mut_ptr() as *mut libc::c_void, 1) };
+    unsafe { libc::fcntl(0, libc::F_SETFL, flags); }
+    result > 0 && buf[0] == b'q'
+}
+
+#[cfg(not(unix))]
+fn check_quit() -> bool { false }
 
 fn render_display(m: &SystemMonitor) {
     // Clear screen

@@ -60,7 +60,7 @@ impl PrometheusCompositor {
         self.input.poll();
         self.layout.update();
         self.workspaces.update();
-        self.renderer.frame(&self.config, &self.layout, &self.workspaces);
+        self.renderer.frame(&self.config);
     }
 
     pub fn shutdown(&mut self) {

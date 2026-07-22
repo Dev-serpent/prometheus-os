@@ -1,18 +1,12 @@
 [package]
 name = "prometheus-compositor"
 version = "0.1.0"
-edition = "2024"
-description = "Prometheus OS Wayland compositor - wlroots-based GPU accelerated compositor"
+edition = "2021"
+description = "Prometheus OS Wayland compositor"
 
 [dependencies]
-wlroots.workspace = true
-wayland-server.workspace = true
-wayland-protocols.workspace = true
-xkbcommon.workspace = true
-libc.workspace = true
-serde.workspace = true
+serde = { workspace = true, features = ["derive"] }
 serde_json.workspace = true
-tokio.workspace = true
 tracing.workspace = true
 tracing-subscriber.workspace = true
 anyhow.workspace = true
@@ -21,11 +15,5 @@ parking_lot.workspace = true
 dashmap.workspace = true
 rayon.workspace = true
 image.workspace = true
-futures.workspace = true
-async-trait.workspace = true
-nix = "0.29"
+libc.workspace = true
 toml = "0.8"
-
-[features]
-default = ["x11"]
-x11 = []

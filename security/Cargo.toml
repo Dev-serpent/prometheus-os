@@ -1,7 +1,7 @@
 [package]
 name = "prometheus-security"
 version = "0.1.0"
-edition = "2024"
+edition = "2021"
 description = "Prometheus OS security subsystem"
 
 [dependencies]
