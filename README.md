@@ -1,520 +1,160 @@
 <p align="center">
+  <img src="https://raw.githubusercontent.com/sudorootvector/prometheus-os/main/resources/brand/prometheus-logo-dark.svg" width="280" alt="Prometheus OS">
+</p>
+
+<h1 align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sudorootvector/prometheus-os/main/resources/brand/prometheus-logo-dark.svg">
-    <img src="https://raw.githubusercontent.com/sudorootvector/prometheus-os/main/resources/brand/prometheus-logo-light.svg" width="320" alt="Prometheus OS">
+    <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Inter&weight=700&size=32&duration=4000&pause=500&color=0078FF&center=true&vCenter=true&repeat=true&width=500&lines=AI-Native+Operating+System;Built+for+2040;The+OS+is+the+AI">
+    <img src="https://readme-typing-svg.demolab.com?font=Inter&weight=700&size=32&duration=4000&pause=500&color=0078FF&center=true&vCenter=true&repeat=true&width=500&lines=AI-Native+Operating+System;Built+for+2040;The+OS+is+the+AI">
   </picture>
-</p>
+</h1>
 
 <p align="center">
-  <b>An AI-Native Operating System</b><br>
-  <sub>Built on Arch Linux · Designed for 2040</sub>
+  <a href="https://github.com/sudorootvector/prometheus-os"><img src="https://img.shields.io/badge/status-active--development-0A0A0A?style=flat&logo=github" alt="Status"></a>
+  <a href="https://github.com/sudorootvector/prometheus-os/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-GPLv3-0A0A0A?style=flat" alt="License"></a>
+  <a href="#"><img src="https://img.shields.io/badge/kernel-linux--zen-0A0A0A?style=flat&logo=linux" alt="Kernel"></a>
+  <a href="#"><img src="https://img.shields.io/badge/display-wayland-0A0A0A?style=flat" alt="Display"></a>
+  <a href="#"><img src="https://img.shields.io/badge/language-rust-0A0A0A?style=flat&logo=rust" alt="Language"></a>
+  <a href="#"><img src="https://img.shields.io/badge/ram_idle-%3C900MB-0A0A0A?style=flat" alt="RAM"></a>
 </p>
-
-<p align="center">
-  <a href="#-architecture">
-    <img src="https://img.shields.io/badge/ARCHITECTURE-0A0A0A?style=for-the-badge&logo=linux&logoColor=0078FF" alt="Architecture">
-  </a>
-  <a href="#-quick-start">
-    <img src="https://img.shields.io/badge/QUICK_START-0A0A0A?style=for-the-badge&logo=gnubash&logoColor=00C853" alt="Quick Start">
-  </a>
-  <a href="#-core-components">
-    <img src="https://img.shields.io/badge/COMPONENTS-0A0A0A?style=for-the-badge&logo=rust&logoColor=FFD600" alt="Components">
-  </a>
-  <a href="#-ai-core">
-    <img src="https://img.shields.io/badge/AI_CORE-0A0A0A?style=for-the-badge&logo=tensorflow&logoColor=0078FF" alt="AI Core">
-  </a>
-  <a href="#-gnome-desktop">
-    <img src="https://img.shields.io/badge/GNOME_DE-0A0A0A?style=for-the-badge&logo=gnome&logoColor=FFFFFF" alt="GNOME">
-  </a>
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/STATUS-ACTIVE_DEVELOPMENT-00C853?style=flat-square&labelColor=0A0A0A" alt="Status">
-  <img src="https://img.shields.io/badge/LICENSE-GPLv3-0078FF?style=flat-square&labelColor=0A0A0A" alt="License">
-  <img src="https://img.shields.io/badge/KERNEL-LINUX_ZEN-FFD600?style=flat-square&labelColor=0A0A0A" alt="Kernel">
-  <img src="https://img.shields.io/badge/DISPLAY-WAYLAND_ONLY-FFFFFF?style=flat-square&labelColor=0A0A0A" alt="Display">
-  <img src="https://img.shields.io/badge/LANGUAGE-RUST-FF1744?style=flat-square&labelColor=0A0A0A" alt="Language">
-  <img src="https://img.shields.io/badge/RAM_IDLE-%3C900MB-00C853?style=flat-square&labelColor=0A0A0A" alt="RAM">
-</p>
-
-<br>
 
 ---
 
-```ascii
-╔══════════════════════════════════════════════════════════════════╗
-║                                                                  ║
-║     ██████  ██████  ██████  ███    ███ ███████ ████████ ██   ██ ║
-║     ██   ██ ██   ██ ██   ██ ████  ████ ██         ██    ██   ██ ║
-║     ██████  ██████  ██   ██ ██ ████ ██ █████      ██    ███████ ║
-║     ██      ██   ██ ██   ██ ██  ██  ██ ██         ██    ██   ██ ║
-║     ██      ██   ██ ██████  ██      ██ ███████    ██    ██   ██ ║
-║                                                                  ║
-║                   ▒█▀▀█ █▀▀ █▀▀█ █▀▀█ █▀▀                    ║
-║                   ▒█▄▄█ █   █▄▄▀ █▄▄▀ █▀▀                    ║
-║                                                                  ║
-╚══════════════════════════════════════════════════════════════════╝
-```
-
-> **Prometheus OS is not another Linux distribution.**  
-> It is a complete reimagining of the operating system where **the AI is the interface**.  
-> Applications become tools used by the AI. The user communicates with Prometheus instead of manually managing software.
+Prometheus OS is not another Linux distribution. Applications become tools the AI uses. You communicate with Prometheus instead of manually managing software.
 
 ---
 
-## 📋 Table of Contents
-
-- [🚀 Quick Start](#-quick-start)
-- [🏗 Architecture](#-architecture)
-- [🧠 AI Core](#-ai-core)
-- [🖥 Desktop Environments](#-desktop-environments)
-- [📦 Core Components](#-core-components)
-- [📊 Performance](#-performance)
-- [🛡 Security](#-security)
-- [🔧 Development](#-development)
-- [🤖 Robotics](#-robotics)
-- [📁 Project Structure](#-project-structure)
-
----
-
-## 🚀 Quick Start
+## Quick Start
 
 ```bash
-# ─── Build from source ─────────────────────────────────────
 git clone https://github.com/sudorootvector/prometheus-os.git
 cd prometheus-os
-
-# Build all core components
-make all
-
-# Build GNOME Desktop integration
-make gnome
-
-# ─── Install ───────────────────────────────────────────────
-make install                # Core components
-make install-gnome          # GNOME integration (optional)
-
-# ─── Or build a bootable ISO ──────────────────────────────
-make iso
-
-# ─── Run ───────────────────────────────────────────────────
-prometheus-bootstrap        # First-time system setup
-reboot                      # Select "Prometheus" at login
-
-# Or run in a session:
-make run                    # Native Prometheus compositor
-make run-gnome              # GNOME with Prometheus AI
-```
-
-<details>
-<summary><b>📦 Arch Linux Package Installation</b></summary>
-
-```bash
-# Install from PKGBUILD
-cd packaging/pkgbuilds/prometheus-meta
-makepkg -si
-prometheus-bootstrap
-systemctl enable gdm
-reboot
-```
-</details>
-
----
-
-## 🏗 Architecture
-
-```
-┌──────────────────────────────────────────────────────────────────┐
-│                     USER INTERFACE LAYER                          │
-│  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────────────┐    │
-│  │ Terminal │ │  Files   │ │ Settings │ │    Dashboard     │    │
-│  └────┬─────┘ └────┬─────┘ └────┬─────┘ └───────┬──────────┘    │
-│       │            │            │               │                │
-│  ┌────┴────────────┴────────────┴───────────────┴──────────┐     │
-│  │                   DESKTOP SHELL                          │     │
-│  │      Panel · Launcher · Notifications · Workspaces       │     │
-│  └───────────────────────┬─────────────────────────────────┘     │
-│                          │                                       │
-│  ┌──────────────────────┴─────────────────────────────────┐      │
-│  │              COMPOSITOR (wlroots-based)                  │      │
-│  │   GPU Renderer · Layout Engine · Effects · Gestures     │      │
-│  │          240 FPS · Physics Animations · Blur            │      │
-│  └───────────────────────┬─────────────────────────────────┘      │
-├──────────────────────────┼───────────────────────────────────────┤
-│  ┌──────────────────────┴─────────────────────────────────┐      │
-│  │                   AI CORE                                │      │
-│  │                                                          │      │
-│  │  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐    │      │
-│  │  │Reasoning │ │  Memory  │ │  Vision  │ │  Voice   │    │      │
-│  │  │ Engine   │ │  Graph   │ │  Engine  │ │  Engine  │    │      │
-│  │  └──────────┘ └──────────┘ └──────────┘ └──────────┘    │      │
-│  │  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐    │      │
-│  │  │Automation│ │ Context  │ │  Plugin  │ │  Agents  │    │      │
-│  │  │ Engine   │ │ Manager  │ │  System  │ │  Manager │    │      │
-│  │  └──────────┘ └──────────┘ └──────────┘ └──────────┘    │      │
-│  └───────────────────────┬─────────────────────────────────┘      │
-├──────────────────────────┼───────────────────────────────────────┤
-│  ┌──────────────────────┴─────────────────────────────────┐      │
-│  │                 SECURITY LAYER                          │      │
-│  │  Sandbox · Permissions · Audit · Encryption · AppArmor │      │
-│  └───────────────────────┬─────────────────────────────────┘      │
-├──────────────────────────┼───────────────────────────────────────┤
-│  ┌──────────────────────┴─────────────────────────────────┐      │
-│  │               ARCH LINUX FOUNDATION                     │      │
-│  │  systemd · Wayland · PipeWire · Btrfs · Mesa · linux-zen│     │
-│  │  pacman · AUR · Flatpak · SecureBoot · UEFI            │      │
-│  └──────────────────────────────────────────────────────────┘      │
-└──────────────────────────────────────────────────────────────────┘
+make all && make iso
 ```
 
 ---
 
-## 🧠 AI Core
+## Why Prometheus?
 
-```
-                        ┌─────────────────────┐
-                        │   USER INPUT          │
-                        │  Voice · Keyboard     │
-                        └──────────┬──────────┘
-                                   │
-                        ┌──────────▼──────────┐
-                        │   COMMAND ROUTER     │
-                        └──────────┬──────────┘
-                                   │
-              ┌────────────────────┼────────────────────┐
-              │                    │                    │
-     ┌────────▼───┐      ┌────────▼───────┐   ┌───────▼───────┐
-     │  REASONING │      │    MEMORY      │   │    VISION     │
-     │   ENGINE   │      │    GRAPH       │   │    ENGINE     │
-     │            │      │                │   │               │
-     │ • Planning │      │ • Knowledge    │   │ • Screen cap  │
-     │ • ReAct    │      │ • Embeddings   │   │ • OCR         │
-     │ • TreeThought│    │ • Semantic     │   │ • Object det  │
-     │ • Multi-agent│   │   search       │   │ • UI analysis │
-     └────────┬───┘      └────────┬───────┘   └───────┬───────┘
-              │                    │                    │
-     ┌────────▼───┐      ┌────────▼───────┐   ┌───────▼───────┐
-     │   VOICE    │      │  AUTOMATION    │   │   CONTEXT     │
-     │   ENGINE   │      │   ENGINE       │   │   MANAGER     │
-     │            │      │                │   │               │
-     │ • STT      │      │ • Pattern rec  │   │ • Active apps │
-     │ • TTS      │      │ • Workflow     │   │ • Resources   │
-     │ • Wake word│      │ • Suggestions  │   │ • History     │
-     └────────┬───┘      └────────┬───────┘   └───────┬───────┘
-              │                    │                    │
-              └────────────────────┼────────────────────┘
-                                   │
-                        ┌──────────▼──────────┐
-                        │   ACTION EXECUTOR    │
-                        └──────────┬──────────┘
-                                   │
-                        ┌──────────▼──────────┐
-                        │    OS SUBSYSTEMS     │
-                        └─────────────────────┘
-```
+**Typical OS** → You open apps, manage windows, search for files, run commands.
 
-### Capabilities
-
-| Engine | Function | Status |
-|--------|----------|--------|
-| **Reasoning** | Multi-step planning, ReAct, Tree-of-Thought | ✅ |
-| **Memory Graph** | Persistent knowledge graph with semantic search | ✅ |
-| **Vision** | Screen capture, OCR, UI element detection | ✅ |
-| **Voice** | Wake-word activation, STT, TTS | ✅ |
-| **Automation** | Pattern recognition, workflow suggestions | ✅ |
-| **Context** | Real-time system awareness, activity tracking | ✅ |
-| **Plugin System** | Extensible via Python, Rust, C++, JS | ✅ |
-| **Multi-Agent** | Collaborative task decomposition | ✅ |
+**Prometheus** → You talk to the AI. It opens apps, manages windows, finds files, runs commands. It learns how you work and automates repetitive tasks. The desktop becomes an intelligent workspace.
 
 ---
 
-## 🖥 Desktop Environments
-
-### Option 1: Prometheus Native (Custom wlroots Compositor)
-
-```yaml
-Compositor: Prometheus-Compositor (wlroots)
-Rendering:  GPU-accelerated, 240 FPS
-Effects:    Blur, glow, shadows, rounded corners
-Layout:     Dynamic tiling + floating, 5 modes
-Workspaces: 9 with physics-based switching
-Animations: Spring physics engine
-```
-
-### Option 2: GNOME Desktop (Fully Integrated)
-
-```yaml
-Shell:      GNOME 45+ with Prometheus dark theme
-Compositor: Mutter tuned for 240 FPS, RT scheduling
-Theme:      Dark glassmorphism with electric-blue accents
-Extensions: AI indicator, Live dashboard, Dynamic tiling
-Login:      Custom GDM theme with Prometheus branding
-```
-
-<details>
-<summary><b>🖼 GNOME Theme Preview</b></summary>
+## Architecture
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│  🔥 Prometheus AI │  ⟳ 12%  │  ⬡ 4.2G  │  ◉ 45°  │  ◆  │
-├─────────────────────────────────────────────────────────────┤
-│                                                             │
-│   ┌─────────────────────────────────────────────────────┐   │
-│   │                                                     │   │
-│   │   Window content with 12px rounded corners          │   │
-│   │   and subtle glow effect on focus                   │   │
-│   │                                                     │   │
-│   │   ┌─────────────────────────────────────────────┐   │   │
-│   │   │  Terminal with transparency and blur        │   │   │
-│   │   └─────────────────────────────────────────────┘   │   │
-│   └─────────────────────────────────────────────────────┘   │
-│                                                             │
-├─────────────────────────────────────────────────────────────┤
-│  Workspace: main  dev  web  media  comm  files  ai  games  │
-└─────────────────────────────────────────────────────────────┘
+You → AI Core → Reasoning → Memory → Action → Desktop
+         ↑_________________________________↓
+              Continuous learning loop
 ```
-</details>
+
+| Layer | What it does |
+|-------|-------------|
+| **AI Core** | Reasoning, memory, vision, voice, automation |
+| **Compositor** | wlroots-based, 240 FPS, GPU-accelerated |
+| **Desktop** | Panel, launcher, notifications, workspaces |
+| **Security** | Sandbox, permissions, audit, encryption |
+| **Apps** | Terminal, files, settings, dashboard, 6 more |
+| **Foundation** | Arch Linux, linux-zen, systemd, Wayland, Btrfs |
 
 ---
 
-## 📊 Performance
+## AI Capabilities
 
-<p align="center">
-  <b>Idle RAM: < 900 MB</b> &nbsp;·&nbsp;
-  <b>Boot: < 5 seconds</b> &nbsp;·&nbsp;
-  <b>Compositor: 240 FPS</b> &nbsp;·&nbsp;
-  <b>AI Response: < 100 ms</b>
-</p>
-
-```
-Target Hardware
-┌─────────────────────────────────────────────────────────────────┐
-│  CPU  ████████████████████████████████████████░░░░  Intel 2nd+  │
-│  RAM  ████████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░  4 GB min    │
-│  GPU  ████████████████████████████████████████████  Vulkan 1.3  │
-│  DISK ████████████████████████████████████████████  64 GB SSD   │
-└─────────────────────────────────────────────────────────────────┘
-
-OS Optimization Targets
-┌─────────────────────────────────────────────────────────────────┐
-│  Boot Time      █████████████████████████████████████░░░░  5s  │
-│  Wake Time      ████████████████████████████████████████  500ms│
-│  App Launch     ████████████████████████████████████████  200ms│
-│  Input Latency  ████████████████████████████████████████  5ms  │
-│  Frame Time     ████████████████████████████████████████  4ms  │
-└─────────────────────────────────────────────────────────────────┘
-```
+- **Desktop understanding** — knows what apps and windows you have open
+- **Screen vision** — reads text, detects UI elements, understands context
+- **Voice control** — wake-word activated speech-to-text and response
+- **Memory graph** — persistent knowledge store with semantic search
+- **Workflow learning** — observes patterns, suggests automations
+- **Multi-agent reasoning** — decomposes complex tasks across agents
 
 ---
 
-## 🛡 Security
+## Desktop Environments
 
-| Layer | Technology | Status |
-|-------|-----------|--------|
-| **Boot** | UEFI Secure Boot with custom keys | ✅ |
-| **Kernel** | Lockdown mode (integrity) | ✅ |
-| **Sandbox** | Bubblewrap + Landlock + Namespaces | ✅ |
-| **Permissions** | Per-application read/write/network/audio/video | ✅ |
-| **Audit** | Full action logging with tamper evidence | ✅ |
-| **Memory** | AES-256-GCM encryption for sensitive data | ✅ |
-| **AI Control** | User approval required for destructive ops | ✅ |
+**Option 1: Prometheus Native**
+Custom wlroots compositor with GPU rendering, physics animations, dynamic tiling, blur, glow, 9 workspaces.
+
+**Option 2: GNOME** (fully integrated)
+Dark glassmorphism theme, live AI panel indicator, real-time system monitor in the top bar, dynamic window tiling, custom GDM login.
 
 ---
 
-## 📦 Core Components
+## Applications
 
-```
-prometheus-os/
-├── compositor/          # wlroots-based Wayland compositor
-│   ├── src/
-│   │   ├── main.rs      # Entry point
-│   │   ├── compositor.rs # Core compositor loop
-│   │   ├── config.rs    # TOML-based configuration
-│   │   ├── render.rs    # GPU rendering pipeline
-│   │   ├── layout.rs    # Dynamic tiling engine
-│   │   ├── workspace.rs # 9-workspace manager
-│   │   ├── input.rs     # Keyboard/mouse/touch/gestures
-│   │   ├── effects.rs   # Blur, glow, shadow effects
-│   │   └── shell.rs     # Panel integration
-│
-├── ai-core/             # Operating system intelligence
-│   ├── src/
-│   │   ├── engine.rs    # Main AI loop & command routing
-│   │   ├── memory.rs    # Knowledge graph with embeddings
-│   │   ├── reasoning.rs # Planning & multi-step reasoning
-│   │   ├── vision.rs    # Screen capture & analysis
-│   │   ├── voice.rs     # Speech-to-text & text-to-speech
-│   │   ├── automation.rs# Pattern recognition & workflows
-│   │   ├── context.rs   # System state tracking
-│   │   └── plugin.rs    # Plugin architecture
-│
-├── desktop/             # Desktop environment
-│   ├── src/
-│   │   ├── panel.rs     # Top bar with AI integration
-│   │   └── launcher.rs  # Universal AI-powered search
-│   └── gnome/           # GNOME Desktop integration
-│       ├── shell-theme/  # Dark glassmorphism GNOME Shell theme
-│       ├── extensions/   # AI, Dashboard, Layout extensions
-│       ├── mutter/       # 240 FPS compositor config
-│       ├── gdm/          # Custom GDM login theme
-│       ├── session/      # Prometheus GNOME session
-│       └── config/       # dconf defaults
-│
-├── applications/        # Native applications (10 apps)
-│   ├── terminal/        # AI-integrated terminal emulator
-│   ├── files/           # File manager with smart search
-│   ├── settings/        # System configuration center
-│   ├── dashboard/       # AI command center & system monitor
-│   ├── package-manager/ # pacman + AUR + Flatpak GUI
-│   ├── system-monitor/  # Real-time resource monitor
-│   └── snapshot-manager/# Btrfs snapshot management
-│
-├── security/            # Security subsystem
-│   ├── sandbox.rs       # Bubblewrap sandboxing
-│   ├── permissions.rs   # Capability-based permissions
-│   ├── audit.rs         # Comprehensive audit logging
-│   └── encryption.rs    # Memory encryption
-│
-├── sdk/                 # Multi-language SDK
-│   ├── rust/            # Native Rust SDK
-│   ├── python/          # Python SDK
-│   ├── cpp/             # C++ SDK
-│   └── javascript/      # JavaScript SDK
-│
-├── boot/                # Boot infrastructure
-│   ├── systemd/         # Service files
-│   └── initramfs/       # Btrfs rollback hooks
-│
-├── packaging/           # Build & packaging
-│   ├── pkgbuilds/       # Arch Linux PKGBUILDs
-│   └── iso/             # ISO builder
-│
-└── docs/                # Documentation
-    ├── ARCHITECTURE.md  # System architecture
-    ├── AI_CORE.md       # AI subsystem docs
-    ├── DESKTOP.md       # Desktop environment docs
-    ├── SECURITY.md       # Security model
-    ├── PERFORMANCE.md   # Performance targets
-    └── ROBOTICS.md      # Robotics integration
-```
+Terminal · Files · Settings · Dashboard · Package Manager · System Monitor · Snapshot Manager · Plugin Manager · Developer Hub
+
+All native Rust applications sharing one design language.
 
 ---
 
-## 🔧 Development
+## Performance Targets
 
-```bash
-# Build everything
-make all              # Core components (Rust)
-make sdk              # SDKs
-make gnome            # GNOME integration
-make iso              # Bootable ISO
+- Idle RAM: **< 900 MB**
+- Cold boot: **< 5 seconds**
+- Compositor: **240 FPS**
+- AI response: **< 100 ms**
+- Wake from suspend: **< 500 ms**
 
-# Test & lint
-make test             # Run all tests
-make lint             # Clippy lints
+---
 
-# Install
-make install          # Core to /usr
-make install-gnome    # GNOME integration
-```
+## Security
 
-### SDK Usage
+Secure Boot · Sandboxed apps · Permission-based AI actions · Audit logging · Memory encryption · User-confirm destructive ops
 
-<details>
-<summary><b>Rust</b></summary>
+---
+
+## SDK
 
 ```rust
-use prometheus_sdk::PrometheusSDK;
-
-fn main() {
-    let sdk = PrometheusSDK::new();
-    let response = sdk.ai().query("What's on my screen?");
-    sdk.desktop().send_notification("Hello", "From Prometheus!");
-    let cpu = sdk.system().cpu_info();
-}
+// Rust
+let sdk = PrometheusSDK::new();
+sdk.ai().query("What's on my screen?");
 ```
-</details>
-
-<details>
-<summary><b>Python</b></summary>
 
 ```python
+# Python
 from prometheus_sdk import PrometheusSDK
-
-sdk = PrometheusSDK()
-result = sdk.ai.query("Analyze my system")
-notification = sdk.desktop.send_notification("AI", "Analysis complete")
-cpu = sdk.system.cpu_usage()
+PrometheusSDK().ai.query("Analyze my system")
 ```
-</details>
-
-<details>
-<summary><b>JavaScript</b></summary>
 
 ```javascript
+// JavaScript
 const { PrometheusSDK } = require('prometheus-sdk');
-const sdk = new PrometheusSDK();
-const response = await sdk.ai.query('What is on my screen?');
-```
-</details>
-
----
-
-## 🤖 Robotics
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│                   PROMETHEUS ROBOTICS STACK                  │
-├─────────────────────────────────────────────────────────────┤
-│  ROS2  │  CAN Bus  │  Serial  │  GPIO  │  USB  │  PWM      │
-├─────────┴───────────┴──────────┴────────┴───────┴──────────┤
-│  LiDAR · Depth Cameras · IMU · GPS · Microphones           │
-│  Robotic Arms · Drones · Servos · Stepper Motors           │
-├─────────────────────────────────────────────────────────────┤
-│  AI Perception · Path Planning · Control · SLAM            │
-└─────────────────────────────────────────────────────────────┘
+await PrometheusSDK().ai.query('Summarize this page');
 ```
 
 ---
 
-## 📊 Project Stats
+## Robotics
 
-```
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Language            Files     Lines      % of project
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Rust                 132      9,796      100.0%
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Total                132      9,796      100.0%
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ROS2 · CAN Bus · Serial · GPIO · LiDAR · Depth cameras · Robotic arms · Drones
 
-Components:  15 crate workspace
-Authors:     Prometheus OS Developers
-License:     GNU General Public License v3
-```
+The AI Core interfaces directly with hardware for autonomous robot control.
 
 ---
 
-## 📜 License
+## Build from Source
 
-**Prometheus OS** — Copyright © 2024 Prometheus OS Developers
+```bash
+make all           # Build core (Rust)
+make gnome         # Build GNOME integration
+make install       # Install to /usr
+make iso           # Bootable ISO
+```
 
-This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+**Requires:** Arch Linux, base-devel, rust, cargo
 
 ---
+
+## Project
+
+```
+132 files · 9,796 lines · 15 Rust crates · GPLv3
+```
 
 <p align="center">
-  <sub>
-    Built with 🔥 by the Prometheus OS Team<br>
-    <em>"The best way to predict the future is to invent it."</em>
-  </sub>
-</p>
-
-<p align="center">
-  <a href="https://github.com/sudorootvector/prometheus-os">
-    <img src="https://img.shields.io/github/stars/sudorootvector/prometheus-os?style=social" alt="Stars">
-  </a>
-  <a href="https://github.com/sudorootvector/prometheus-os/fork">
-    <img src="https://img.shields.io/github/forks/sudorootvector/prometheus-os?style=social" alt="Forks">
-  </a>
+  <sub>Built with 🔥 by the Prometheus OS Team</sub>
 </p>
