@@ -37,6 +37,9 @@ Thumbs.db
 .env
 .env.local
 
+# Generated CSS maps
+*.css.map
+
 # Logs
 *.log
 /var/log/prometheus/
