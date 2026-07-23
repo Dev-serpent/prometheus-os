@@ -1,0 +1,9 @@
+title: Tutorials
+nav:
+  - Overview: index.md
+  - Building Your First App: build-app.md
+  - Creating a Plugin: create-plugin.md
+  - Python SDK Quickstart: python-sdk.md
+  - Natural Language Automation: automation.md
+  - Custom AI Models: custom-models.md
+  - Robotics Setup: robotics-setup.md

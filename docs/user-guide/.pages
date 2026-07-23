@@ -1,0 +1,11 @@
+title: User Guide
+nav:
+  - Getting Started: index.md
+  - Installation: installation.md
+  - Desktop Basics: desktop-basics.md
+  - Using the AI: using-ai.md
+  - Managing Applications: managing-apps.md
+  - System Settings: settings.md
+  - Package Management: packages.md
+  - Backup & Recovery: backup.md
+  - Troubleshooting: troubleshooting.md

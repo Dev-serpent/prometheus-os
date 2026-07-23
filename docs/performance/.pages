@@ -1,0 +1,6 @@
+title: Performance
+nav:
+  - Overview: index.md
+  - Optimization Guide: optimization.md
+  - Benchmark Results: benchmarks.md
+  - System Requirements: requirements.md

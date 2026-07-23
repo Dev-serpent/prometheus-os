@@ -1,0 +1,231 @@
+:root {
+  --prometheus-blue: #0078FF;
+  --prometheus-cyan: #00BCD4;
+  --prometheus-dark: #0A0A0A;
+  --prometheus-surface: #1A1A1A;
+  --prometheus-border: #2A2A2A;
+}
+
+[data-md-color-scheme="slate"] {
+  --md-hue: 220;
+  --md-default-bg-color: #0A0A0A;
+  --md-default-fg-color: #D0D0D0;
+  --md-typeset-a-color: #0078FF;
+  --md-accent-fg-color: #00BCD4;
+  --md-code-bg-color: #141414;
+  --md-code-fg-color: #E0E0E0;
+  --md-footer-bg-color: #050505;
+  --md-footer-bg-color--dark: #000000;
+}
+
+.md-header {
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(42, 42, 42, 0.5);
+}
+
+.md-hero {
+  background: linear-gradient(135deg, #0A0A0A 0%, #001428 100%);
+  border-bottom: 1px solid rgba(0, 120, 255, 0.2);
+}
+
+.md-hero__inner {
+  padding: 3rem 0;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #0078FF, #00BCD4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: #888;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.feature-card {
+  background: rgba(26, 26, 26, 0.8);
+  border: 1px solid rgba(42, 42, 42, 0.5);
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(12px);
+}
+
+.feature-card:hover {
+  border-color: rgba(0, 120, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0, 120, 255, 0.1);
+}
+
+.feature-card h3 {
+  margin-top: 0;
+  color: #0078FF;
+}
+
+.feature-card .md-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.stat-card {
+  text-align: center;
+  padding: 1.5rem;
+  background: rgba(26, 26, 26, 0.6);
+  border-radius: 12px;
+  border: 1px solid rgba(42, 42, 42, 0.3);
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #0078FF;
+  display: block;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: #888;
+  margin-top: 0.25rem;
+}
+
+.architecture-diagram {
+  background: rgba(26, 26, 26, 0.5);
+  border-radius: 16px;
+  padding: 2rem;
+  margin: 2rem 0;
+  border: 1px solid rgba(42, 42, 42, 0.3);
+}
+
+.architecture-layer {
+  padding: 0.75rem 1rem;
+  margin: 0.25rem 0;
+  border-radius: 8px;
+  font-family: monospace;
+  font-size: 0.9rem;
+}
+
+.arch-layer-apps { background: rgba(0, 120, 255, 0.15); color: #0078FF; }
+.arch-layer-core { background: rgba(0, 188, 212, 0.15); color: #00BCD4; }
+.arch-layer-system { background: rgba(100, 100, 100, 0.15); color: #AAA; }
+.arch-layer-kernel { background: rgba(255, 152, 0, 0.15); color: #FF9800; }
+
+.code-annotation {
+  background: rgba(0, 120, 255, 0.1);
+  border-left: 3px solid #0078FF;
+  padding: 0.5rem 1rem;
+  margin: 1rem 0;
+  border-radius: 4px;
+}
+
+.md-typeset .admonition {
+  border-radius: 8px;
+}
+
+.md-typeset details {
+  border-radius: 8px;
+}
+
+.md-typeset .tabbed-set {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.md-typeset table:not([class]) {
+  border-radius: 8px;
+  overflow: hidden;
+  font-size: 0.85rem;
+}
+
+.md-typeset table:not([class]) th {
+  background: rgba(0, 120, 255, 0.1);
+}
+
+.md-footer {
+  border-top: 1px solid rgba(42, 42, 42, 0.3);
+}
+
+.md-footer-meta {
+  background: #000 !important;
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.mermaid {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background: rgba(26, 26, 26, 0.8);
+  border: 1px solid rgba(42, 42, 42, 0.5);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.2s ease;
+}
+
+.card:hover {
+  border-color: rgba(0, 120, 255, 0.3);
+}
+
+.card-title {
+  font-weight: 600;
+  color: #0078FF;
+  margin-bottom: 0.5rem;
+}
+
+.quick-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.quick-links a {
+  padding: 0.4rem 1rem;
+  border: 1px solid rgba(42, 42, 42, 0.5);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+}
+
+.quick-links a:hover {
+  border-color: #0078FF;
+  background: rgba(0, 120, 255, 0.1);
+}

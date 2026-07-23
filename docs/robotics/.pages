@@ -1,0 +1,9 @@
+title: Robotics
+nav:
+  - Overview: index.md
+  - ROS2 Integration: ros2.md
+  - Serial Communication: serial.md
+  - GPIO Interface: gpio.md
+  - Arduino Support: arduino.md
+  - ESP32 Support: esp32.md
+  - CAN Bus: canbus.md

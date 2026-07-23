@@ -1,0 +1,13 @@
+title: AI Core
+nav:
+  - Overview: index.md
+  - Reasoning Engine: reasoning.md
+  - Memory System: memory.md
+  - Knowledge Graph: graph.md
+  - Vision Engine: vision.md
+  - Voice Engine: voice.md
+  - Automation Engine: automation.md
+  - Planner: planner.md
+  - Plugin System: plugins.md
+  - Model Integration: models.md
+  - Configuration: config.md

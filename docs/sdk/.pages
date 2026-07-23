@@ -1,0 +1,9 @@
+title: SDK
+nav:
+  - Overview: index.md
+  - Rust SDK: rust.md
+  - Python SDK: python.md
+  - C++ SDK: cpp.md
+  - JavaScript SDK: javascript.md
+  - REST API: ../api/rest.md
+  - CLI Reference: ../reference/cli.md

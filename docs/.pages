@@ -1,0 +1,23 @@
+title: Prometheus OS
+nav:
+  - Home: index.md
+  - Overview: overview/index.md
+  - Quick Start: quickstart.md
+  - Architecture: architecture/
+  - AI Core: ai-core/
+  - Desktop Environments: desktop.md
+  - Applications: apps.md
+  - SDK: sdk/
+  - Security: security/
+  - Performance: performance/
+  - Plugin System: plugins/
+  - Robotics: robotics/
+  - API Reference: api/
+  - Developer Guide: developer/
+  - Tutorials: tutorials/
+  - User Guide: user-guide/
+  - Reference: reference/
+  - Blog: blog/
+  - Community: community/
+  - About: about/
+  - Changelog: changelog.md

@@ -1,0 +1,11 @@
+title: Developer Guide
+nav:
+  - Getting Started: index.md
+  - Project Structure: structure.md
+  - Coding Standards: standards.md
+  - Building from Source: build.md
+  - Testing: testing.md
+  - Debugging: debugging.md
+  - Contribution Guide: contribute.md
+  - CI/CD: cicd.md
+  - Release Process: release.md

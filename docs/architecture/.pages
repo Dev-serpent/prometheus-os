@@ -1,0 +1,11 @@
+title: Architecture
+nav:
+  - Overview: index.md
+  - System Design: system-design.md
+  - Kernel Integration: kernel.md
+  - Desktop Environment: desktop.md
+  - Compositor: compositor.md
+  - AI Integration: ai-integration.md
+  - Security Architecture: security-architecture.md
+  - Performance Model: performance.md
+  - Boot Process: boot.md

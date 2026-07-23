@@ -1,0 +1,8 @@
+title: Reference
+nav:
+  - CLI Reference: cli.md
+  - Configuration: configuration.md
+  - Keyboard Shortcuts: shortcuts.md
+  - Environment Variables: env.md
+  - File System Layout: filesystem.md
+  - Glossary: glossary.md

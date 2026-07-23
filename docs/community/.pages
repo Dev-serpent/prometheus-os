@@ -1,0 +1,8 @@
+title: Community
+nav:
+  - Overview: index.md
+  - Contributing: ../developer/contribute.md
+  - Code of Conduct: code-of-conduct.md
+  - Governance: governance.md
+  - Contributors: contributors.md
+  - Sponsors: sponsors.md

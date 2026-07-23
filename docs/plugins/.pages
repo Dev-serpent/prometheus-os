@@ -1,0 +1,10 @@
+title: Plugin System
+nav:
+  - Overview: index.md
+  - Plugin Architecture: architecture.md
+  - Development Guide: development.md
+  - Plugin API: api.md
+  - Plugin Manifest: manifest.md
+  - Permissions: permissions.md
+  - Marketplace: marketplace.md
+  - Templates: templates.md
