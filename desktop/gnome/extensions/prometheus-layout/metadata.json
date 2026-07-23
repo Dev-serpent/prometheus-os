@@ -1,0 +1,8 @@
+{
+  "name": "Prometheus Dynamic Layout",
+  "description": "Intelligent window tiling and layout management for GNOME Shell. AI-powered workspace optimization.",
+  "uuid": "prometheus-layout@prometheus-os.dev",
+  "shell-version": ["45", "46", "47"],
+  "version": 1,
+  "url": "https://prometheus-os.dev"
+}

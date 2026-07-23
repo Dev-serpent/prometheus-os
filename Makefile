@@ -26,10 +26,11 @@ apps:
 	done
 
 sdk:
-	@for lang in python rust cpp javascript; do \
-		mkdir -p $(BUILD_DIR)/sdk/$$lang; \
-		cd sdk/$$lang && cargo build --$(CONFIG) --target-dir ../../$(BUILD_DIR)/sdk/$$lang 2>/dev/null || echo "SDK build skipped for $$lang"; \
-	done
+	@mkdir -p $(BUILD_DIR)/sdk/rust
+	cd sdk/rust && cargo build --$(CONFIG) --target-dir ../../$(BUILD_DIR)/sdk/rust 2>/dev/null || echo "SDK build skipped for rust"
+	@echo "  Python SDK: source available at sdk/python/"
+	@echo "  C++ SDK: source available at sdk/cpp/"
+	@echo "  JavaScript SDK: source available at sdk/javascript/"
 
 # GNOME Desktop Environment integration
 gnome: gnome-theme gnome-extensions gnome-config
@@ -61,7 +62,7 @@ install:
 	install -Dm755 $(BUILD_DIR)/compositor/release/prometheus-compositor $(DESTDIR)$(PREFIX)/bin/prometheus-compositor
 	
 	# Desktop shell
-	install -Dm755 $(BUILD_DIR)/desktop/release/prometheus-shell $(DESTDIR)$(PREFIX)/bin/prometheus-shell
+	install -Dm755 $(BUILD_DIR)/desktop/release/prometheus-desktop $(DESTDIR)$(PREFIX)/bin/prometheus-desktop
 	
 	# AI Core
 	install -Dm755 $(BUILD_DIR)/ai-core/release/prometheus-ai $(DESTDIR)$(PREFIX)/bin/prometheus-ai
@@ -71,11 +72,13 @@ install:
 	install -Dm755 $(BUILD_DIR)/applications/files/release/prometheus-files $(DESTDIR)$(PREFIX)/bin/prometheus-files
 	install -Dm755 $(BUILD_DIR)/applications/settings/release/prometheus-settings $(DESTDIR)$(PREFIX)/bin/prometheus-settings
 	install -Dm755 $(BUILD_DIR)/applications/dashboard/release/prometheus-dashboard $(DESTDIR)$(PREFIX)/bin/prometheus-dashboard
-	install -Dm755 $(BUILD_DIR)/applications/package-manager/release/prometheus-pkg $(DESTDIR)$(PREFIX)/bin/prometheus-pkg
-	install -Dm755 $(BUILD_DIR)/applications/system-monitor/release/prometheus-monitor $(DESTDIR)$(PREFIX)/bin/prometheus-monitor
-	install -Dm755 $(BUILD_DIR)/applications/snapshot-manager/release/prometheus-snapshot $(DESTDIR)$(PREFIX)/bin/prometheus-snapshot
-	install -Dm755 $(BUILD_DIR)/applications/plugin-manager/release/prometheus-plugin $(DESTDIR)$(PREFIX)/bin/prometheus-plugin
-	install -Dm755 $(BUILD_DIR)/applications/developer-hub/release/prometheus-dev-hub $(DESTDIR)$(PREFIX)/bin/prometheus-dev-hub
+	install -Dm755 $(BUILD_DIR)/applications/package-manager/release/prometheus-package-manager $(DESTDIR)$(PREFIX)/bin/prometheus-package-manager
+	install -Dm755 $(BUILD_DIR)/applications/system-monitor/release/prometheus-system-monitor $(DESTDIR)$(PREFIX)/bin/prometheus-system-monitor
+	install -Dm755 $(BUILD_DIR)/applications/snapshot-manager/release/prometheus-snapshot-manager $(DESTDIR)$(PREFIX)/bin/prometheus-snapshot-manager
+	install -Dm755 $(BUILD_DIR)/applications/plugin-manager/release/prometheus-plugin-manager $(DESTDIR)$(PREFIX)/bin/prometheus-plugin-manager
+	install -Dm755 $(BUILD_DIR)/applications/developer-hub/release/prometheus-developer-hub $(DESTDIR)$(PREFIX)/bin/prometheus-developer-hub
+	install -Dm755 $(BUILD_DIR)/applications/browser/release/prometheus-browser $(DESTDIR)$(PREFIX)/bin/prometheus-browser
+	install -Dm755 $(BUILD_DIR)/applications/task-manager/release/prometheus-task-manager $(DESTDIR)$(PREFIX)/bin/prometheus-task-manager
 	
 	# Configuration
 	install -Dm644 configs/prometheus.conf $(DESTDIR)/etc/prometheus/prometheus.conf
@@ -150,7 +153,7 @@ run: all
 
 run-gnome:
 	@echo "Starting Prometheus GNOME session..."
-	dbus-run-session -- startx /usr/bin/gnome-session --session=prometheus-gnome
+	dbus-run-session -- gnome-session --session=prometheus-gnome
 
 test:
 	@for dir in compositor desktop ai-core applications/*; do \

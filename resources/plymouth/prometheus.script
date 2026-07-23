@@ -1,0 +1,87 @@
+background.SetColor(0.04, 0.04, 0.04);
+
+fun draw_logo ()
+{
+    logo_image = Image ("logo.png");
+    res = Window.GetWidth () / 2;
+    res_y = Window.GetHeight () / 2 - 120;
+    logo_image.Scale (0.8, 0.8);
+    logo_image.SetX (res - 160);
+    logo_image.SetY (res_y);
+    logo_image.SetOpacity (0.95);
+    logo_image.Sprite ();
+}
+
+fun draw_progress_bar (progress)
+{
+    bar_width = 400;
+    bar_height = 4;
+    bar_x = Window.GetWidth () / 2 - bar_width / 2;
+    bar_y = Window.GetHeight () / 2 + 40;
+
+    track = Rectangle ();
+    track.SetX (bar_x);
+    track.SetY (bar_y);
+    track.SetWidth (bar_width);
+    track.SetHeight (bar_height);
+    track.SetColor (0.12, 0.12, 0.12);
+    track.SetOpacity (0.6);
+    track.SetBorderRadius (2);
+    track.Sprite ();
+
+    filled = Rectangle ();
+    filled.SetX (bar_x);
+    filled.SetY (bar_y);
+    filled.SetWidth (bar_width * progress);
+    filled.SetHeight (bar_height);
+    filled.SetColor (0.0, 0.47, 1.0);
+    filled.SetOpacity (0.9);
+    filled.SetBorderRadius (2);
+    filled.Sprite ();
+}
+
+fun show_bullets (progress)
+{
+    num_bullets = 6;
+    for i = 0; i < num_bullets; i++)
+    {
+        progress_for_bullet = (i + 1) / num_bullets;
+
+        bullet_x = Window.GetWidth () / 2 - 80 + i * 32;
+        bullet_y = Window.GetHeight () / 2 + 60;
+
+        if (progress >= progress_for_bullet)
+        {
+            b = Rectangle ();
+            b.SetX (bullet_x);
+            b.SetY (bullet_y);
+            b.SetWidth (6);
+            b.SetHeight (6);
+            b.SetColor (0.0, 0.47, 1.0);
+            b.SetOpacity (1.0);
+            b.SetBorderRadius (3);
+            b.Sprite ();
+        }
+        else
+        {
+            b = Rectangle ();
+            b.SetX (bullet_x);
+            b.SetY (bullet_y);
+            b.SetWidth (6);
+            b.SetHeight (6);
+            b.SetColor (0.3, 0.3, 0.3);
+            b.SetOpacity (0.5);
+            b.SetBorderRadius (3);
+            b.Sprite ();
+        }
+    }
+}
+
+fun refresh ()
+{
+    progress = GetProgress ();
+
+    draw_logo ();
+    draw_progress_bar (progress);
+    show_bullets (progress);
+}

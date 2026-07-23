@@ -29,7 +29,7 @@ pacman -S --noconfirm \
     gnome-tweaks gnome-shell-extensions \
     gdm mutter gsettings-desktop-schemas \
     dconf-editor \
-    linter-font noto-fonts jetbrains-mono \
+    inter-font noto-fonts ttf-jetbrains-mono \
     2>/dev/null || true
 
 # 2. Install Prometheus theme and extensions

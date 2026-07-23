@@ -7,80 +7,60 @@ arch=('x86_64')
 url="https://prometheus-os.dev"
 license=('GPL3')
 depends=(
-    'gnome-shell'
-    'mutter'
-    'gdm'
-    'gnome-session'
-    'gnome-settings-daemon'
-    'gnome-control-center'
-    'nautilus'
-    'gnome-terminal'
-    'gnome-tweaks'
-    'gnome-shell-extensions'
+    'gnome-shell' 'mutter' 'gdm' 'gnome-session'
+    'gnome-settings-daemon' 'gnome-control-center'
+    'nautilus' 'gnome-tweaks' 'gnome-shell-extensions'
 )
 optdepends=(
     'prometheus-ai: AI integration'
     'prometheus-dashboard: system monitoring'
-    'gnome-software: GUI package manager'
 )
 install=prometheus-gnome.install
-
-source=()
+source=("$pkgname-$pkgver.tar.gz::https://github.com/sudorootvector/prometheus-os/archive/v$pkgver.tar.gz")
 sha256sums=('SKIP')
 
 package() {
-    # Install GDM configuration
-    install -Dm644 ../../desktop/gnome/gdm/00-prometheus-gdm.conf \
-        "$pkgdir/etc/gdm/custom.conf"
-    
-    # Install session file
-    install -Dm644 ../../desktop/gnome/session/prometheus-gnome.desktop \
+    cd "$srcdir/prometheus-os-$pkgver"
+
+    install -Dm644 desktop/gnome/gdm/00-prometheus-gdm.conf "$pkgdir/etc/gdm/custom.conf"
+    install -Dm644 desktop/gnome/session/prometheus-gnome.desktop \
         "$pkgdir/usr/share/wayland-sessions/prometheus-gnome.desktop"
-    
-    install -Dm644 ../../desktop/gnome/session/prometheus-gnome.session \
+    install -Dm644 desktop/gnome/session/prometheus-gnome.session \
         "$pkgdir/usr/share/gnome-session/sessions/prometheus-gnome.session"
-    
-    install -Dm755 ../../desktop/gnome/session/prometheus-gnome-session.sh \
+    install -Dm755 desktop/gnome/session/prometheus-gnome-session.sh \
         "$pkgdir/usr/lib/prometheus/prometheus-gnome-session"
-    
-    # Install GNOME Shell theme
-    install -Dm644 ../../desktop/gnome/shell-theme/gnome-shell.scss \
-        "$pkgdir/usr/share/themes/Prometheus-Dark/gnome-shell/gnome-shell.scss"
-    install -Dm644 ../../desktop/gnome/shell-theme/gtk.css \
+
+    install -Dm644 desktop/gnome/shell-theme/gnome-shell.css \
+        "$pkgdir/usr/share/themes/Prometheus-Dark/gnome-shell/gnome-shell.css"
+    install -Dm644 desktop/gnome/shell-theme/gtk.css \
         "$pkgdir/usr/share/themes/Prometheus-Dark/gtk-3.0/gtk.css"
-    install -Dm644 ../../desktop/gnome/shell-theme/index.theme \
+    install -Dm644 desktop/gnome/shell-theme/index.theme \
         "$pkgdir/usr/share/themes/Prometheus-Dark/index.theme"
-    
-    # Link GTK4 theme
     mkdir -p "$pkgdir/usr/share/themes/Prometheus-Dark/gtk-4.0"
     ln -sf "../gtk-3.0/gtk.css" "$pkgdir/usr/share/themes/Prometheus-Dark/gtk-4.0/gtk.css"
-    
-    # Install GDM theme
-    install -Dm644 ../../desktop/gnome/gdm/prometheus-gdm-theme.css \
+
+    install -Dm644 desktop/gnome/gdm/prometheus-gdm-theme.css \
         "$pkgdir/usr/share/themes/Prometheus-Dark/gdm/gdm.css"
-    
-    # Install Mutter performance config
-    install -Dm644 ../../desktop/gnome/mutter/90-prometheus-performance.conf \
+
+    install -Dm644 desktop/gnome/mutter/90-prometheus-performance.conf \
         "$pkgdir/etc/dconf/db/local.d/90-prometheus-performance"
-    install -Dm644 ../../desktop/gnome/mutter/92-prometheus-scheduling.conf \
+    install -Dm644 desktop/gnome/mutter/92-prometheus-scheduling.conf \
         "$pkgdir/etc/dconf/db/local.d/92-prometheus-scheduling"
-    
-    # Install GNOME defaults
-    install -Dm644 ../../desktop/gnome/config/00-prometheus-defaults.gschema.override \
+    install -Dm644 desktop/gnome/config/00-prometheus-defaults.gschema.override \
         "$pkgdir/usr/share/glib-2.0/schemas/00-prometheus-defaults.gschema.override"
-    
-    # Install extensions
-    install -Dm644 ../../desktop/gnome/extensions/prometheus-ai/extension.js \
+
+    install -Dm644 desktop/gnome/extensions/prometheus-ai/extension.js \
         "$pkgdir/usr/share/gnome-shell/extensions/prometheus-ai@prometheus-os.dev/extension.js"
-    install -Dm644 ../../desktop/gnome/extensions/prometheus-ai/metadata.json \
+    install -Dm644 desktop/gnome/extensions/prometheus-ai/metadata.json \
         "$pkgdir/usr/share/gnome-shell/extensions/prometheus-ai@prometheus-os.dev/metadata.json"
-    
-    install -Dm644 ../../desktop/gnome/extensions/prometheus-dashboard/extension.js \
+    install -Dm644 desktop/gnome/extensions/prometheus-dashboard/extension.js \
         "$pkgdir/usr/share/gnome-shell/extensions/prometheus-dashboard@prometheus-os.dev/extension.js"
-    
-    install -Dm644 ../../desktop/gnome/extensions/prometheus-layout/extension.js \
+    install -Dm644 desktop/gnome/extensions/prometheus-dashboard/metadata.json \
+        "$pkgdir/usr/share/gnome-shell/extensions/prometheus-dashboard@prometheus-os.dev/metadata.json"
+    install -Dm644 desktop/gnome/extensions/prometheus-layout/extension.js \
         "$pkgdir/usr/share/gnome-shell/extensions/prometheus-layout@prometheus-os.dev/extension.js"
-    
-    # Compile GLib schemas
+    install -Dm644 desktop/gnome/extensions/prometheus-layout/metadata.json \
+        "$pkgdir/usr/share/gnome-shell/extensions/prometheus-layout@prometheus-os.dev/metadata.json"
+
     glib-compile-schemas "$pkgdir/usr/share/glib-2.0/schemas" 2>/dev/null || true
 }

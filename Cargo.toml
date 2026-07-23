@@ -16,6 +16,7 @@ members = [
     "applications/snapshot-manager",
     "applications/plugin-manager",
     "applications/developer-hub",
+    "security",
 ]
 
 [workspace.dependencies]

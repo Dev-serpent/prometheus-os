@@ -1,0 +1,8 @@
+{
+  "name": "Prometheus Dashboard",
+  "description": "Real-time system monitoring dashboard for Prometheus OS. Displays CPU, GPU, memory, disk, and AI status.",
+  "uuid": "prometheus-dashboard@prometheus-os.dev",
+  "shell-version": ["45", "46", "47"],
+  "version": 1,
+  "url": "https://prometheus-os.dev"
+}
